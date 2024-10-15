@@ -1,16 +1,18 @@
 <template>
     <nav :class="['navbar', { 'navbar-scrolled': isScrolled }]">
-        <div class="logo">
-            <img src="@/assets/images/logo.png" alt="Pixeltech Logo">
-        </div>
+        <router-link to="/">
+            <div class="logo">
+                <img src="@/assets/images/logo.png" alt="Pixeltech Logo">
+            </div>
+        </router-link>
         <ul class="nav-links" :class="{ 'nav-active': isNavOpen }">
-            <router-link to="/">
+            <router-link to="/about">
                 <li>About Us</li>
             </router-link>
             <router-link to="/services">
                 <li>Services</li>
             </router-link>
-            <router-link to="/">
+            <router-link to="/blogs">
                 <li>Portfolio</li>
             </router-link>
             <router-link to="/">
@@ -36,13 +38,13 @@
                             <img src="@/assets/images/logo.png" alt="Pixeltech Logo">
                         </li>
                     </div>
-                    <router-link to="/" @click="closeNav">
+                    <router-link to="/about" @click="closeNav">
                         <li>About Us</li>
                     </router-link>
-                    <router-link to="/" @click="closeNav">
+                    <router-link to="/services" @click="closeNav">
                         <li>Services</li>
                     </router-link>
-                    <router-link to="/" @click="closeNav">
+                    <router-link to="/blogs" @click="closeNav">
                         <li>Portfolio</li>
                     </router-link>
                     <router-link to="/" @click="closeNav">

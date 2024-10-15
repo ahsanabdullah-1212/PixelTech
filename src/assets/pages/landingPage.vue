@@ -9,7 +9,6 @@
         <ReviewSection />
         <TalkToUs />
         <FooterContainer />
-        <router-view />
     </div>
 </template>
 

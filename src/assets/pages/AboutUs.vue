@@ -1,8 +1,7 @@
 <template>
     <div>
-        <ServiceHeroSection />
-        <ServiceCards />
-        <WorkSection />
+        <AboutHeroSection />
+        <CreationCards />
         <TalkToUs />
         <FooterContainer />
     </div>
@@ -10,19 +9,17 @@
 
 <script>
 
-import ServiceHeroSection from '@/components/ServiceHeroSection.vue'
+import AboutHeroSection from '@/components/AboutHeroSection.vue'
 import TalkToUs from '@/components/TalkToUs.vue'
-import ServiceCards from '@/components/ServiceCards.vue'
+import CreationCards from '@/components/CreationCards.vue'
 import FooterContainer from '@/components/FooterContainer.vue'
-import WorkSection from '@/components/WorkSection.vue';
 
 export default {
     name: 'LandingPage',
     components: {
-    ServiceHeroSection,
+    AboutHeroSection,
     TalkToUs,
-    ServiceCards,
-    WorkSection,
+    CreationCards,
     FooterContainer,
     }
 }
