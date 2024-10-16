@@ -6,19 +6,19 @@
             </div>
         </router-link>
         <ul class="nav-links" :class="{ 'nav-active': isNavOpen }">
-            <router-link to="/about">
+            <router-link to="/blogs">
                 <li>About Us</li>
             </router-link>
             <router-link to="/services">
                 <li>Services</li>
             </router-link>
-            <router-link to="/blogs">
+            <router-link to="/portfolio">
                 <li>Portfolio</li>
             </router-link>
             <router-link to="/">
                 <li>Team</li>
             </router-link>
-            <router-link to="/">
+            <router-link to="/contact">
                 <li>Contact Us</li>
             </router-link>
             <li><button class="gradient-btn">Get a quote</button></li>
@@ -38,19 +38,19 @@
                             <img src="@/assets/images/logo.png" alt="Pixeltech Logo">
                         </li>
                     </div>
-                    <router-link to="/about" @click="closeNav">
+                    <router-link to="/blogs" @click="closeNav">
                         <li>About Us</li>
                     </router-link>
                     <router-link to="/services" @click="closeNav">
                         <li>Services</li>
                     </router-link>
-                    <router-link to="/blogs" @click="closeNav">
+                    <router-link to="/portfolio" @click="closeNav">
                         <li>Portfolio</li>
                     </router-link>
                     <router-link to="/" @click="closeNav">
                         <li>Team</li>
                     </router-link>
-                    <router-link to="/" @click="closeNav">
+                    <router-link to="/contact" @click="closeNav">
                         <li>Contact Us</li>
                     </router-link>
                 </ul>

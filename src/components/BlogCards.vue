@@ -37,6 +37,16 @@ export default {
           date: 'September 7, 2024',
           title: 'The Process of Creating a 3D Animation from Start to Finish',
         },
+        {
+          imageUrl: require('@/assets/images/3d-4.png'),
+          date: 'September 7, 2024',
+          title: 'The Process of Creating a 3D Animation from Start to Finish',
+        },
+        {
+          imageUrl: require('@/assets/images/3d-4.png'),
+          date: 'September 7, 2024',
+          title: 'The Process of Creating a 3D Animation from Start to Finish',
+        },
       ],
     };
   },
