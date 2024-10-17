@@ -4,22 +4,32 @@
             <div class="footer-row">
                 <div class="footer-col">
                     <div class="footer-logo">
-                        <img src="@/assets/images/logo.png" alt=""> 
+                        <img src="@/assets/images/logo.png" alt="">
                     </div>
                     <p>Block B Gulberg Greens</p>
-                        <p>Islamabad 46000, PK</p>
-                        <br>
-                        <p>Company Number: +92 336 535 7391</p>
-                        <p>Privacy Policy | Terms & Conditions</p>
+                    <p>Islamabad 46000, PK</p>
+                    <br>
+                    <p>Company Number: +92 336 535 7391</p>
+                    <p>Privacy Policy | Terms & Conditions</p>
                 </div>
                 <div class="footer-col">
                     <ul>
                         <h2>Company</h2>
-                        <li>Home</li>
-                        <li>About us</li>
-                        <li>Services</li>
-                        <li>Pricing</li>
-                        <li>Portfolio</li>
+                        <router-link to="/">
+                            <li>Home</li>
+                        </router-link>
+                        <router-link to="/blogs">
+                            <li>About us</li>
+                        </router-link>
+                        <router-link to="/services">
+                            <li>Services</li>
+                        </router-link>
+                        <router-link to="/contact">
+                            <li>Contact Us</li>
+                        </router-link>
+                        <router-link to="/portfolio">
+                            <li>Portfolio</li>
+                        </router-link>
                     </ul>
                 </div>
                 <div class="footer-col">
