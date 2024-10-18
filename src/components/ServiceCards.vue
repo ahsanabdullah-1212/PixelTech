@@ -42,8 +42,12 @@
                                     <h2>{{ chunk[2].serial }}</h2>
                                 </div>
                                 <div class="ss-card-detail">
-                                    <h3 class="animated-2">{{ chunk[2].title }}</h3>
-                                    <p>{{ chunk[2].description }}</p>
+                                    <div class="ch-title">
+                                        <h3 class="animated-3">{{ chunk[2].title }}</h3>
+                                    </div>
+                                    <div class="ch-p">
+                                        <p>{{ chunk[2].description }}</p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="s-d-image">

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <AboutHeroSection />
+        <portfolioHeroSection />
         <CreationCards />
         <TalkToUs />
         <FooterContainer />
@@ -9,7 +9,7 @@
 
 <script>
 
-import AboutHeroSection from '@/components/AboutHeroSection.vue'
+import portfolioHeroSection from '@/components/portfolioHeroSection.vue'
 import TalkToUs from '@/components/TalkToUs.vue'
 import CreationCards from '@/components/CreationCards.vue'
 import FooterContainer from '@/components/FooterContainer.vue'
@@ -17,7 +17,7 @@ import FooterContainer from '@/components/FooterContainer.vue'
 export default {
     name: 'LandingPage',
     components: {
-    AboutHeroSection,
+        portfolioHeroSection,
     TalkToUs,
     CreationCards,
     FooterContainer,
