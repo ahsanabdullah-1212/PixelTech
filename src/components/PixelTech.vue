@@ -1,6 +1,6 @@
 <template>
     <div class="parent-pixel">
-        <div class="pixel-container">
+        <div class="pixel-container"> 
             <div class="pixel-row">
                 <div class="pixel-col-1">
                     <div class="pixel-info">
