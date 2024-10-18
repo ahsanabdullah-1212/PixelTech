@@ -16,7 +16,7 @@
                 <div class="star" style="top: 95%; left: 40%;"></div>
                 <div class="star" style="top: 85%; left: 60%;"></div>
                 <div class="star" style="top: 135%; left: 88%;"></div>
-                <div class="hero-paragraph">
+                <div class="hero-paragraph2">
                     <p>We turn your brand vision into captivating 3D animations and visual experiences
                         that captivate and engage your audience</p>
                 </div>

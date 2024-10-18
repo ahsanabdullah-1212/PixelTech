@@ -9,7 +9,7 @@
                                 <h2>{{ chunk[0].serial }}</h2>
                             </div>
                             <div class="ss-card-detail">
-                                <h3 class="animated-3">{{ chunk[0].title }}</h3>
+                                <h3 class="animated-2">{{ chunk[0].title }}</h3>
                                 <p>{{ chunk[0].description }}</p>
                             </div>
                             <div class="ss-card-image">
@@ -27,7 +27,7 @@
                                 <h2>{{ chunk[1].serial }}</h2>
                             </div>
                             <div class="ss-card-detail">
-                                <h3 class="animated-3">{{ chunk[1].title }}</h3>
+                                <h3 class="animated-2">{{ chunk[1].title }}</h3>
                                 <p>{{ chunk[1].description }}</p>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                                     <h2>{{ chunk[2].serial }}</h2>
                                 </div>
                                 <div class="ss-card-detail">
-                                    <h3 class="animated-3">{{ chunk[2].title }}</h3>
+                                    <h3 class="animated-2">{{ chunk[2].title }}</h3>
                                     <p>{{ chunk[2].description }}</p>
                                 </div>
                             </div>

@@ -279,7 +279,18 @@ body {
     margin-top: 40px;
 }
 
+.hero-paragraph2 p {
+    color: var(--white-color);
+}
+
+@media(max-width:480px) {
+    .hero-paragraph2 p {
+        margin: 10px;
+        font-size: 15px;
+    }
+}
 .hero-paragraph p {
+    padding-bottom: 285px;
     color: var(--white-color);
 }
 
@@ -1418,7 +1429,7 @@ body {
     text-align: left;
     padding: 10px;
     overflow: hidden;
-    width: 300px;
+    width: 400px;
     height: auto;
 }
 
@@ -1436,7 +1447,7 @@ body {
     display: flex;
     justify-content: space-between;
     text-align: left;
-    width: 300px;
+    width: 400px;
     overflow: hidden;
     height: auto;
 }
@@ -1455,7 +1466,7 @@ body {
     display: flex;
     justify-content: space-between;
     text-align: left;
-    width: 620px;
+    width: 820px;
     overflow: hidden;
     height: auto;
 }
@@ -1467,6 +1478,7 @@ body {
 }
 
 .sd-1 {
+    margin-right: 10px;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -1488,6 +1500,7 @@ body {
 .ss-card-detail p {
     margin-top: 3px;
     height: 100px;
+    line-height: 2;
     font-size: 12px;
     margin-bottom: 3px;
     color: var(--tech-grey);
