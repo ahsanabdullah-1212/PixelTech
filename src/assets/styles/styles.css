@@ -64,9 +64,40 @@ body {
 }
 
 .nav-links li {
+    transition: color 0.3s ease;
+    position: relative;
     margin: 0 15px;
 }
-
+.nav-links li:hover {
+    color: var(--radiant-1); /* Hover text color */
+}
+.nav-links li:hover::after,
+.nav-active li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color:  var(--radiant-1);
+    transition: width 0.3s ease;
+}
+.nav-links li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: var(--radiant-1);
+    transition: width 0.3s ease;
+}
+.nav-active li {
+    color: var(--radiant-1);
+}
+.nav-active li::after {
+    width: 100%;
+}
 .nav-links a {
     color: var(--tech-grey) !important;
     text-decoration: none;
@@ -291,6 +322,7 @@ body {
         font-size: 15px;
     }
 }
+
 .hero-paragraph p {
     padding-bottom: 285px;
     color: var(--white-color);
@@ -358,15 +390,24 @@ body {
 .star {
     position: absolute;
     width: 5px;
-    /* Adjust dot size as needed */
     height: 5px;
     background-image: url('@/assets/images/dots.png');
     background-size: cover;
     opacity: 0.7;
-    /* Optional: adjust opacity to make them blend like stars */
 }
 
 /*     footer      */
+
+.footer-container {
+    background-image: url(http://localhost:8080/img/l-green.c4cf9a2d.png);
+    background-position: right 1px top 75px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    padding-bottom: 27px;
+    padding-top: 25px;
+}
+
 .footer-row {
     max-width: 1200px;
     margin-left: auto;
@@ -722,12 +763,14 @@ body {
     padding-bottom: 65px;
     justify-content: center;
 }
-@media(max-width:450px){
-    .specail-cards-btns{
+
+@media(max-width:450px) {
+    .specail-cards-btns {
         flex-direction: column;
         align-items: center;
     }
 }
+
 .simple-btn {
     width: 150px;
     margin-left: 20px;
@@ -743,6 +786,7 @@ body {
         font-size: 11px;
     }
 }
+
 @media(max-width:450px) {
     .simple-btn {
         margin-left: 0px;
@@ -1314,11 +1358,13 @@ body {
     display: flex !important;
     justify-content: center;
 }
-@media(max-width:400px){
+
+@media(max-width:400px) {
     .swiper-slide {
         margin-left: 2px;
     }
 }
+
 .main-review-section {
     padding-bottom: 30px;
     margin-bottom: 106px;
@@ -1863,9 +1909,11 @@ input::placeholder,
 textarea::placeholder {
     color: #7a7a7a;
 }
+
 option {
     color: black;
 }
+
 .contact-help-options {
     display: flex;
     flex-wrap: wrap;
@@ -1939,3 +1987,62 @@ textarea {
         width: 100%;
     }
 }
+/*    button     */
+.button-container-1 {
+    position: relative;
+    width: 190px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6vh;
+    overflow: hidden;
+    border: 1px solid #000; /* Border color */
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    transition: 0.5s;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    background: #fff; /* Background color for container */
+  }
+  
+  .button-container-1 button {
+    width: 101%;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 11px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png") no-repeat;
+    background-size: 2300% 100%; /* Adjust based on your sprite */
+    border: none; /* Remove default button border */
+    color: #fff; /* Text color */
+    transition: background-position 0.5s ease, color 0.5s ease; ; /* Transition effect for background */
+    animation: ani2 0.7s steps(22) forwards;
+  }
+  
+  /* Hover effect for button */
+  .button-container-1 button:hover {
+    color: #000;
+    animation: ani 0.7s steps(22) forwards;
+  }
+  
+  /* Keyframes for animations */
+  @keyframes ani {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 100%; /* Adjust as needed */
+    }
+  }
+  
+  @keyframes ani2 {
+    0% {
+      background-position: 100%;
+    }
+    100% {
+      background-position: 0%; /* Adjust as needed */
+    }
+  }

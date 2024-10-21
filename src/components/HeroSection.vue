@@ -23,11 +23,17 @@
                 <div class="hero-btn">
                     <button class="gradient-btn">Launch your idea</button>
                 </div>
+                <div class="button-container-1">
+                    <button id="work" type="button" name="Hover">MASK1</button>
+                </div>
+
             </div>
 
             <div class="hero-line">
                 <img src="@/assets/images/border-line.png" alt="">
             </div>
         </div>
+
+
     </div>
 </template>

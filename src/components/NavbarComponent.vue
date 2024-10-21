@@ -1,24 +1,24 @@
 <template>
     <nav :class="['navbar', { 'navbar-scrolled': isScrolled }]">
-        <router-link to="/">
+        <router-link to="/" exact-active-class="nav-active" active-class="nav-active">
             <div class="logo">
                 <img src="@/assets/images/logo.png" alt="Pixeltech Logo">
             </div>
         </router-link>
         <ul class="nav-links" :class="{ 'nav-active': isNavOpen }">
-            <router-link to="/blogs">
+            <router-link to="/blogs" exact-active-class="nav-active" active-class="nav-active">
                 <li>About Us</li>
             </router-link>
-            <router-link to="/services">
+            <router-link to="/services" exact-active-class="nav-active" active-class="nav-active">
                 <li>Services</li>
             </router-link>
-            <router-link to="/portfolio">
+            <router-link to="/portfolio" exact-active-class="nav-active" active-class="nav-active">
                 <li>Portfolio</li>
             </router-link>
-            <router-link to="/">
+            <router-link to="/" exact-active-class="nav-active" active-class="nav-active">
                 <li>Team</li>
             </router-link>
-            <router-link to="/contact">
+            <router-link to="/contact" exact-active-class="nav-active" active-class="nav-active">
                 <li>Contact Us</li>
             </router-link>
             <li><button class="gradient-btn">Get a quote</button></li>
@@ -28,8 +28,6 @@
             <span :class="{ 'bar-hidden': isNavOpen }"></span>
             <span :class="{ 'bar-bottom-cross': isNavOpen }"></span>
         </div>
-
-        <!-- Sidebar -->
         <transition name="slide">
             <div :class="['sidebar', { 'sidebar-active': isNavOpen }]">
                 <ul>
@@ -38,26 +36,29 @@
                             <img src="@/assets/images/logo.png" alt="Pixeltech Logo">
                         </li>
                     </div>
-                    <router-link to="/blogs" @click="closeNav">
+                    <router-link to="/blogs" exact-active-class="nav-active" active-class="nav-active" @click="closeNav">
                         <li>About Us</li>
                     </router-link>
-                    <router-link to="/services" @click="closeNav">
+                    <router-link to="/services" exact-active-class="nav-active" active-class="nav-active" @click="closeNav">
                         <li>Services</li>
                     </router-link>
-                    <router-link to="/portfolio" @click="closeNav">
+                    <router-link to="/portfolio" exact-active-class="nav-active" active-class="nav-active" @click="closeNav">
                         <li>Portfolio</li>
                     </router-link>
-                    <router-link to="/" @click="closeNav">
+                    <router-link to="/" exact-active-class="nav-active" active-class="nav-active" @click="closeNav">
                         <li>Team</li>
                     </router-link>
-                    <router-link to="/contact" @click="closeNav">
+                    <router-link to="/contact" exact-active-class="nav-active" active-class="nav-active" @click="closeNav">
                         <li>Contact Us</li>
                     </router-link>
                 </ul>
             </div>
         </transition>
     </nav>
+   
+
 </template>
+
 <script>
 export default {
     data() {
@@ -93,3 +94,6 @@ export default {
     }
 };
 </script>
+<style>
+
+</style>
