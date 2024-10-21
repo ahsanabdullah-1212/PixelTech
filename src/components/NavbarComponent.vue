@@ -21,7 +21,10 @@
             <router-link to="/contact" exact-active-class="nav-active" active-class="nav-active">
                 <li>Contact Us</li>
             </router-link>
-            <li><button class="gradient-btn">Get a quote</button></li>
+            <router-link to="/contact">
+                <div class="btn-nav"><button class="gradient-btn">Get a quote</button></div>
+            </router-link>
+            
         </ul>
         <div class="hamburger" @click="toggleNav">
             <span :class="{ 'bar-top-cross': isNavOpen }"></span>
@@ -32,30 +35,37 @@
             <div :class="['sidebar', { 'sidebar-active': isNavOpen }]">
                 <ul>
                     <div class="side-info">
-                        <li>
-                            <img src="@/assets/images/logo.png" alt="Pixeltech Logo">
-                        </li>
+                        <router-link to="/" exact-active-class="nav-active" active-class="nav-active">
+                            <li>
+                                <img src="@/assets/images/logo.png" alt="Pixeltech Logo">
+                            </li>
+                        </router-link>
+
                     </div>
-                    <router-link to="/blogs" exact-active-class="nav-active" active-class="nav-active" @click="closeNav">
+                    <router-link to="/blogs" exact-active-class="nav-active" active-class="nav-active"
+                        @click="closeNav">
                         <li>About Us</li>
                     </router-link>
-                    <router-link to="/services" exact-active-class="nav-active" active-class="nav-active" @click="closeNav">
+                    <router-link to="/services" exact-active-class="nav-active" active-class="nav-active"
+                        @click="closeNav">
                         <li>Services</li>
                     </router-link>
-                    <router-link to="/portfolio" exact-active-class="nav-active" active-class="nav-active" @click="closeNav">
+                    <router-link to="/portfolio" exact-active-class="nav-active" active-class="nav-active"
+                        @click="closeNav">
                         <li>Portfolio</li>
                     </router-link>
                     <router-link to="/" exact-active-class="nav-active" active-class="nav-active" @click="closeNav">
                         <li>Team</li>
                     </router-link>
-                    <router-link to="/contact" exact-active-class="nav-active" active-class="nav-active" @click="closeNav">
+                    <router-link to="/contact" exact-active-class="nav-active" active-class="nav-active"
+                        @click="closeNav">
                         <li>Contact Us</li>
                     </router-link>
                 </ul>
             </div>
         </transition>
     </nav>
-   
+
 
 </template>
 
@@ -94,6 +104,4 @@ export default {
     }
 };
 </script>
-<style>
-
-</style>
+<style></style>

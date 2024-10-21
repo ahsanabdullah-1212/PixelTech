@@ -20,15 +20,12 @@
                     <p>We turn your brand vision into captivating 3D animations and visual experiences
                         that captivate and engage your audience</p>
                 </div>
-                <div class="hero-btn">
-                    <button class="gradient-btn">Launch your idea</button>
-                </div>
-                <div class="button-container-1">
-                    <button id="work" type="button" name="Hover">MASK1</button>
-                </div>
-
+                <router-link to="/contact">
+                    <div class="hero-btn">
+                        <button class="gradient-btn">Launch your idea</button>
+                    </div>
+                </router-link>
             </div>
-
             <div class="hero-line">
                 <img src="@/assets/images/border-line.png" alt="">
             </div>
