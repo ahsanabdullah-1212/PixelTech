@@ -2,7 +2,7 @@
     <div class="main-service-hero-section">
         <div class="hero-details">
             <div class="service-hero-texting">
-                <h1 class="hero-text">Explain our &nbsp;<span class="animated">creations</span></h1>
+                <h1 class="hero-text">Explain our <span class="animated">creations</span></h1>
             </div>
             <div class="hero-stars">
                 <!-- Dots randomly positioned -->

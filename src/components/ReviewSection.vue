@@ -52,55 +52,55 @@ export default {
       reviews: [
         {
           image: require('@/assets/images/rev-1.png'),
-          text: "The automated organization and secure cloud storage save me a lot of time each week...",
+          text: "“ The automated organization and secure cloud storage save me a lot       of time each week, allowing me to focus more on providing strategic advice to my clients. Its a very useful tool for any bookkeeper.”",
           name: "Mark Devis",
           role: "Professional User"
         },
         {
           image: require('@/assets/images/rev-1.png'),
-          text: "This tool helps me organize client data easily, and the interface is very user-friendly...",
+          text: "“ The automated organization and secure cloud storage save me a lot       of time each week, allowing me to focus more on providing strategic advice to my clients. Its a very useful tool for any bookkeeper.”",
           name: "Sarah Johnson",
           role: "Business Analyst"
         },
         {
           image: require('@/assets/images/rev-1.png'),
-          text: "I've used this tool for several months, and it has become an essential part of my workflow...",
+          text: "“ The automated organization and secure cloud storage save me a lot       of time each week, allowing me to focus more on providing strategic advice to my clients. Its a very useful tool for any bookkeeper.”",
           name: "Emily Clarke",
           role: "Freelancer"
         },
         {
           image: require('@/assets/images/rev-1.png'),
-          text: "The automated organization and secure cloud storage save me a lot of time each week...",
+          text: "“ The automated organization and secure cloud storage save me a lot       of time each week, allowing me to focus more on providing strategic advice to my clients. Its a very useful tool for any bookkeeper.”",
           name: "Mark Devis",
           role: "Professional User"
         },
         {
           image: require('@/assets/images/rev-1.png'),
-          text: "This tool helps me organize client data easily, and the interface is very user-friendly...",
+          text: "“ The automated organization and secure cloud storage save me a lot       of time each week, allowing me to focus more on providing strategic advice to my clients. Its a very useful tool for any bookkeeper.”",
           name: "Sarah Johnson",
           role: "Business Analyst"
         },
         {
           image: require('@/assets/images/rev-1.png'),
-          text: "I've used this tool for several months, and it has become an essential part of my workflow...",
+          text: "“ The automated organization and secure cloud storage save me a lot       of time each week, allowing me to focus more on providing strategic advice to my clients. Its a very useful tool for any bookkeeper.”",
           name: "Emily Clarke",
           role: "Freelancer"
         },
         {
           image: require('@/assets/images/rev-1.png'),
-          text: "The automated organization and secure cloud storage save me a lot of time each week...",
+          text: "“ The automated organization and secure cloud storage save me a lot       of time each week, allowing me to focus more on providing strategic advice to my clients. Its a very useful tool for any bookkeeper.”",
           name: "Mark Devis",
           role: "Professional User"
         },
         {
           image: require('@/assets/images/rev-1.png'),
-          text: "This tool helps me organize client data easily, and the interface is very user-friendly...",
+          text: "“ The automated organization and secure cloud storage save me a lot       of time each week, allowing me to focus more on providing strategic advice to my clients. Its a very useful tool for any bookkeeper.”",
           name: "Sarah Johnson",
           role: "Business Analyst"
         },
         {
           image: require('@/assets/images/rev-1.png'),
-          text: "I've used this tool for several months, and it has become an essential part of my workflow...",
+          text: "“ The automated organization and secure cloud storage save me a lot       of time each week, allowing me to focus more on providing strategic advice to my clients. Its a very useful tool for any bookkeeper.”",
           name: "Emily Clarke",
           role: "Freelancer"
         },

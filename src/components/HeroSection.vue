@@ -5,7 +5,7 @@
                 <img src="@/assets/images/hero-section.png" alt="">
             </div>
             <div class="hero-texting">
-                <h1 class="hero-text">Concepts, perfectly &nbsp;<span class="animated">animated</span></h1>
+                <h1 class="hero-text">Concepts, perfectly <span class="animated">animated</span></h1>
             </div>
             <div class="hero-stars">
                 <!-- Dots randomly positioned -->

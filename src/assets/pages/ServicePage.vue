@@ -1,5 +1,6 @@
 <template>
     <div>
+        <NavbarComponent />
         <ServiceHeroSection />
         <ServiceCards />
         <WorkSection />
@@ -10,6 +11,7 @@
 
 <script>
 
+import NavbarComponent from '@/components/NavbarComponent.vue'
 import ServiceHeroSection from '@/components/ServiceHeroSection.vue'
 import TalkToUs from '@/components/TalkToUs.vue'
 import ServiceCards from '@/components/ServiceCards.vue'
@@ -21,6 +23,7 @@ export default {
     components: {
     ServiceHeroSection,
     TalkToUs,
+    NavbarComponent,
     ServiceCards,
     WorkSection,
     FooterContainer,

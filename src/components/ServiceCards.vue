@@ -12,7 +12,7 @@
                                 <h3 class="animated-2">{{ chunk[0].title }}</h3>
                                 <p>{{ chunk[0].description }}</p>
                             </div>
-                            <div class="ss-card-image">
+                            <div class="ss-card-image1">
                                 <img :src="chunk[0].image" :alt="chunk[0].title" />
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="ss-card-detail">
                                     <div class="ch-title">
-                                        <h3 class="animated-3">{{ chunk[2].title }}</h3>
+                                        <h3 class="animated-2">{{ chunk[2].title }}</h3>
                                     </div>
                                     <div class="ch-p">
                                         <p>{{ chunk[2].description }}</p>
@@ -62,7 +62,7 @@
         </div>
         <router-link to="/services">
             <div class="specail-cards-btns"><button class="gradient-btn">See our Plans</button><button
-                    class="simple-btn">Unique Project</button></div>
+                    class="simple-btn">Unique Project?</button></div>
         </router-link>
 
     </div>

@@ -1,5 +1,6 @@
 <template>
     <div>
+        <NavbarComponent />
         <BlogHeroSection />
         <BlogCards />
         <TalkToUs />
@@ -9,6 +10,7 @@
 
 <script>
 
+import NavbarComponent from '@/components/NavbarComponent.vue'
 import BlogHeroSection from '@/components/BlogHeroSection.vue'
 import TalkToUs from '@/components/TalkToUs.vue'
 import BlogCards from '@/components/BlogCards.vue'
@@ -20,6 +22,7 @@ export default {
     BlogHeroSection,
     TalkToUs,
     BlogCards,
+    NavbarComponent,
     FooterContainer,
     }
 }

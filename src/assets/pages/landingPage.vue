@@ -1,5 +1,6 @@
 <template>
     <div>
+        <NavbarComponent />
         <HeroSection />
         <PixelTech />
         <SpecialCards />
@@ -13,6 +14,7 @@
 </template>
 
 <script>
+import NavbarComponent from '@/components/NavbarComponent.vue'
 import TalkToUs from '@/components/TalkToUs.vue'
 import ReviewSection from '@/components/ReviewSection.vue'
 import PixelTech from '@/components/PixelTech.vue'
@@ -28,6 +30,7 @@ export default {
     components: {
         ReviewSection,
         TalkToUs,
+        NavbarComponent,
         PixelTech,
         NewsArticles,
         HeroSection,
