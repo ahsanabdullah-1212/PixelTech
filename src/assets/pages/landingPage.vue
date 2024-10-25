@@ -6,7 +6,7 @@
         <SpecialCards />
         <WorkSection />
         <NewsArticles />
-        <BrandingContainer />
+        <!-- <BrandingContainer /> -->
         <ReviewSection />
         <TalkToUs />
         <FooterContainer />
@@ -23,7 +23,7 @@ import HeroSection from '@/components/HeroSection.vue'
 import SpecialCards from '@/components/SpecialCards.vue'
 import WorkSection from '@/components/WorkSection.vue'
 import FooterContainer from '@/components/FooterContainer.vue'
-import BrandingContainer from '@/components/BrandingContainer.vue'
+// import BrandingContainer from '@/components/BrandingContainer.vue'
 
 export default {
     name: 'LandingPage',
@@ -34,7 +34,7 @@ export default {
         PixelTech,
         NewsArticles,
         HeroSection,
-        BrandingContainer,
+        // BrandingContainer,
         FooterContainer,
         WorkSection,
         SpecialCards,

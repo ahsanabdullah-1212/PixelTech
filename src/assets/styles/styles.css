@@ -896,6 +896,12 @@ a {
     }
 }
 
+@media(max-width:768px) {
+    .pixel-head h1 {
+        text-align: center;
+    }
+}
+
 @media(max-width:400px) {
     .pixel-head h1 {
         font-size: 20px;
@@ -929,6 +935,12 @@ a {
     margin-right: auto;
 }
 
+@media(max-width:768px) {
+    .pixel-description {
+        max-width: 100%;
+    }
+}
+
 .pixel-description p {
     text-align: left;
     font-size: 11px;
@@ -939,6 +951,15 @@ a {
 @media(max-width:1030px) {
     .pixel-description p {
         font-size: 15px;
+    }
+}
+
+@media(max-width:768px) {
+    .pixel-description p {
+        margin-left: auto;
+        max-width: 100%;
+        margin-right: auto;
+        text-align: center;
     }
 }
 
@@ -1109,7 +1130,11 @@ a {
     font-weight: 100;
     text-align: left;
 }
-
+@media(max-width:768px){
+    .work-head2 h2 {
+        text-align: center;
+    }
+}
 .work-description p {
     color: var(--tech-grey);
     margin-top: 3px;
@@ -1119,6 +1144,13 @@ a {
     font-size: 12px;
     text-align: left;
     font-size: 12px;
+}
+
+@media(max-width:768px) {
+    .work-description p {
+        max-width: 100%;
+        text-align: center;
+    }
 }
 
 .work-description2 p {
@@ -1136,7 +1168,11 @@ a {
     display: flex;
     justify-content: flex-start;
 }
-
+@media(max-width:768px){
+    .work-btn {
+        justify-content: center;
+    }
+}
 .gradient-btn-2 {
     cursor: pointer;
     border: none;
@@ -1386,6 +1422,7 @@ a {
         border-radius: 50%;
     }
 }
+
 @media(max-width:440px) {
     .reviewer-img img {
         width: 81%;
@@ -1397,6 +1434,7 @@ a {
         border-radius: 50%;
     }
 }
+
 @media(max-width:380px) {
     .reviewer-img img {
         width: 77%;
@@ -1455,6 +1493,7 @@ a {
         color: var(--tech-grey);
     }
 }
+
 @media(max-width:440px) {
     .review-col-2-1 p {
         font-size: 7px;
@@ -1789,7 +1828,11 @@ a {
     font-weight: 100;
     font-size: 25px;
 }
-
+@media(max-width:790px){
+    .creation-card-description h2 {
+        font-size: 16px;
+    }  
+}
 .creation-card-description p {
     margin-bottom: 15px;
     line-height: 1.38;
@@ -1797,7 +1840,15 @@ a {
     font-weight: 100;
     font-size: 12px;
 }
-
+@media(max-width:770px){
+    .creation-card-description p {
+        margin-bottom: 10px;
+        line-height: 1.;
+        color: var(--tech-grey);
+        font-weight: 100;
+        font-size: 9px;
+    }  
+}
 .main-creation-cards {
     background-image: url('@/assets/images/r-blue.png'), url('@/assets/images/l-green.png');
     background-position: left -340px bottom -296px, right -311px top -280px;
