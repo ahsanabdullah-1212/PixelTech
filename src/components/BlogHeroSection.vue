@@ -2,7 +2,7 @@
     <div class="main-service-hero-section">
         <div class="hero-details">
             <div class="service-hero-texting">
-                <h1 class="hero-text">News and <span class="animated">Articles.</span></h1>
+                <h1 class="hero-text">News & <span class="animated">Articles.</span></h1>
             </div>
             <div class="hero-stars">
                 <!-- Dots randomly positioned -->

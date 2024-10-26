@@ -17,19 +17,21 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="service-card-two" v-if="chunk[1]">
                         <div class="ss-card-info-2">
                             <div class="ss-card-image">
                                 <img :src="chunk[1].image" :alt="chunk[1].title" />
                             </div>
-                            <div class="serial-number">
-                                <h2>{{ chunk[1].serial }}</h2>
+                            <div class="serial-details">
+                                <div class="serial-number">
+                                    <h2>{{ chunk[1].serial }}</h2>
+                                </div>
+                                <div class="ss-card-detail">
+                                    <h3 class="animated-2">{{ chunk[1].title }}</h3>
+                                    <p>{{ chunk[1].description }}</p>
+                                </div>
                             </div>
-                            <div class="ss-card-detail">
-                                <h3 class="animated-2">{{ chunk[1].title }}</h3>
-                                <p>{{ chunk[1].description }}</p>
-                            </div>
+
                         </div>
                     </div>
                 </div>

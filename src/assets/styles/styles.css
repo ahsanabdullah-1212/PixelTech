@@ -155,7 +155,7 @@ a {
 
 .gradient-btn {
     border: none;
-    width: 150px;
+    width: 114px;
     padding: 15px 15px;
     color: var(--white-color);
     cursor: pointer;
@@ -355,6 +355,11 @@ a {
     .hero-paragraph p {
         margin: 10px;
         font-size: 15px;
+    }
+}
+@media(max-width:400px) {
+    .hero-paragraph p {
+        font-size: 13px;
     }
 }
 
@@ -1303,10 +1308,14 @@ a {
 
 .Article-card img {
     width: 100%;
-    height: 250px;
+    height: 305px;
     object-fit: cover;
 }
-
+@media(max-width:420px){
+    .Article-card img {
+        height: 210px;
+    }
+}
 .Article-card-content {
     padding: 20px;
     text-align: left;
@@ -1403,9 +1412,9 @@ a {
 } */
 .reviewer-img img {
     width: 82%;
-    height: 181px;
+    height: 189px;
     margin-left: -22px;
-    margin-top: 39px;
+    margin-top: 37px;
     padding-bottom: 11px;
     padding-top: 1px;
     border-radius: 50%;
@@ -1426,9 +1435,9 @@ a {
 @media(max-width:440px) {
     .reviewer-img img {
         width: 81%;
-        height: 165px;
+        height: 178px;
         margin-left: -25px;
-        margin-top: 46px;
+        margin-top: 42px;
         padding-bottom: 11px;
         padding-top: 1px;
         border-radius: 50%;
@@ -1438,9 +1447,9 @@ a {
 @media(max-width:380px) {
     .reviewer-img img {
         width: 77%;
-        height: 146px;
+        height: 134px;
         margin-left: -25px;
-        margin-top: 59px;
+        margin-top: 64px;
         padding-bottom: 11px;
         padding-top: 1px;
         border-radius: 50%;
@@ -1604,7 +1613,15 @@ a {
 
 /*    Service Cards    */
 
-
+.serial-details{
+    position: relative;
+    top: 36px;
+}
+@media(max-width:630px) {
+    .serial-details{
+        top: 0px;
+    }
+}
 .s-d-image {
     width: 50%;
 }

@@ -57,13 +57,13 @@ export default {
           role: "Professional User"
         },
         {
-          image: require('@/assets/images/rev-1.png'),
+          image: require('@/assets/images/pf-1.jpg'),
           text: "“ The automated organization and secure cloud storage save me a lot       of time each week, allowing me to focus more on providing strategic advice to my clients. Its a very useful tool for any bookkeeper.”",
           name: "Sarah Johnson",
           role: "Business Analyst"
         },
         {
-          image: require('@/assets/images/rev-1.png'),
+          image: require('@/assets/images/pf-3.jpg'),
           text: "“ The automated organization and secure cloud storage save me a lot       of time each week, allowing me to focus more on providing strategic advice to my clients. Its a very useful tool for any bookkeeper.”",
           name: "Emily Clarke",
           role: "Freelancer"
@@ -75,13 +75,13 @@ export default {
           role: "Professional User"
         },
         {
-          image: require('@/assets/images/rev-1.png'),
+          image: require('@/assets/images/pf-1.jpg'),
           text: "“ The automated organization and secure cloud storage save me a lot       of time each week, allowing me to focus more on providing strategic advice to my clients. Its a very useful tool for any bookkeeper.”",
           name: "Sarah Johnson",
           role: "Business Analyst"
         },
         {
-          image: require('@/assets/images/rev-1.png'),
+          image: require('@/assets/images/pf-3.jpg'),
           text: "“ The automated organization and secure cloud storage save me a lot       of time each week, allowing me to focus more on providing strategic advice to my clients. Its a very useful tool for any bookkeeper.”",
           name: "Emily Clarke",
           role: "Freelancer"
@@ -93,13 +93,13 @@ export default {
           role: "Professional User"
         },
         {
-          image: require('@/assets/images/rev-1.png'),
+          image: require('@/assets/images/pf-1.jpg'),
           text: "“ The automated organization and secure cloud storage save me a lot       of time each week, allowing me to focus more on providing strategic advice to my clients. Its a very useful tool for any bookkeeper.”",
           name: "Sarah Johnson",
           role: "Business Analyst"
         },
         {
-          image: require('@/assets/images/rev-1.png'),
+          image: require('@/assets/images/pf-3.jpg'),
           text: "“ The automated organization and secure cloud storage save me a lot       of time each week, allowing me to focus more on providing strategic advice to my clients. Its a very useful tool for any bookkeeper.”",
           name: "Emily Clarke",
           role: "Freelancer"
