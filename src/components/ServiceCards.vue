@@ -5,13 +5,16 @@
                 <div class="service-cards-row-1">
                     <div class="service-card-one" v-if="chunk[0]">
                         <div class="ss-card-info-1">
-                            <div class="serial-number">
-                                <h2>{{ chunk[0].serial }}</h2>
+                            <div class="serial-details-2">
+                                <div class="serial-number">
+                                    <h2>{{ chunk[0].serial }}</h2>
+                                </div>
+                                <div class="ss-card-detail">
+                                    <h3 class="animated-6">{{ chunk[0].title }}</h3>
+                                    <p>{{ chunk[0].description }}</p>
+                                </div>
                             </div>
-                            <div class="ss-card-detail">
-                                <h3 class="animated-2">{{ chunk[0].title }}</h3>
-                                <p>{{ chunk[0].description }}</p>
-                            </div>
+
                             <div class="ss-card-image1">
                                 <img :src="chunk[0].image" :alt="chunk[0].title" />
                             </div>
@@ -19,7 +22,7 @@
                     </div>
                     <div class="service-card-two" v-if="chunk[1]">
                         <div class="ss-card-info-2">
-                            <div class="ss-card-image">
+                            <div class="ss-card-image2">
                                 <img :src="chunk[1].image" :alt="chunk[1].title" />
                             </div>
                             <div class="serial-details">
@@ -27,7 +30,7 @@
                                     <h2>{{ chunk[1].serial }}</h2>
                                 </div>
                                 <div class="ss-card-detail">
-                                    <h3 class="animated-2">{{ chunk[1].title }}</h3>
+                                    <h3 class="animated-6">{{ chunk[1].title }}</h3>
                                     <p>{{ chunk[1].description }}</p>
                                 </div>
                             </div>
@@ -45,7 +48,7 @@
                                 </div>
                                 <div class="ss-card-detail">
                                     <div class="ch-title">
-                                        <h3 class="animated-2">{{ chunk[2].title }}</h3>
+                                        <h3 class="animated-6">{{ chunk[2].title }}</h3>
                                     </div>
                                     <div class="ch-p">
                                         <p>{{ chunk[2].description }}</p>
@@ -75,12 +78,12 @@ export default {
     data() {
         return {
             cards: [
-                { serial: '01', title: '3D Character Design', description: 'By mastering in on what we do best, we consistently deliver top tier results. Our expertise spans six core areas. If you’re not sure where your project fits, reach out to us—we’re here to guide you every step of the way ', image: require('@/assets/images/card-1.png') },
-                { serial: '02', title: '3D Game Assets Modeling', description: 'By mastering in on what we do best, we consistently deliver top tier results. Our expertise spans six core areas. If you’re not sure where your project fits, reach out to us—we’re here to guide you every step of the way.', image: require('@/assets/images/ss-2.jpeg') },
-                { serial: '03', title: 'Product Visualization', description: 'By mastering in on what we do best, we consistently deliver top tier results. Our expertise spans six core areas. If you’re not sure where your project fits, reach out to us—we’re here to guide you every step of the way.', image: require('@/assets/images/ss-3.jpeg') },
-                { serial: '04', title: '2D Motion Graphics', description: 'By mastering in on what we do best, we consistently deliver top tier results. Our expertise spans six core areas. If you’re not sure where your project fits, reach out to us—we’re here to guide you every step of the way.', image: require('@/assets/images/ss-4.jpeg') },
-                { serial: '05', title: '3D Customizers for Websites', description: 'By mastering in on what we do best, we consistently deliver top tier results. Our expertise spans six core areas. If you’re not sure where your project fits, reach out to us—we’re here to guide you every step of the way.', image: require('@/assets/images/ss-5.jpeg') },
-                { serial: '06', title: 'NFT Design  & Development', description: 'By mastering in on what we do best, we consistently deliver top tier results. Our expertise spans six core areas. If you’re not sure where your project fits, reach out to us—we’re here to guide you every step of the way.', image: require('@/assets/images/ss-6.jpeg') },
+                { serial: '01', title: '3D Character Design', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ', image: require('@/assets/images/card-1.png') },
+                { serial: '02', title: '3D Game Assets Modeling', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', image: require('@/assets/images/ss-2.jpeg') },
+                { serial: '03', title: 'Product Visualization', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', image: require('@/assets/images/ss-3.jpeg') },
+                { serial: '04', title: '2D Motion Graphics', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', image: require('@/assets/images/ss-4.jpeg') },
+                { serial: '05', title: '3D Customizers for Websites', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', image: require('@/assets/images/ss-5.jpeg') },
+                { serial: '06', title: 'NFT Design  & Development', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', image: require('@/assets/images/ss-6.jpeg') },
             ],
         };
     },

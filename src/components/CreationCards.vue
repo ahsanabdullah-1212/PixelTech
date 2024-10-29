@@ -15,10 +15,19 @@
             <br>
             <p>{{ card.description2 }}</p>
             <div class="creation-btn">
-              <button class="gradient-btn">See more</button>
+              <button class="gradient-btn-2">See more</button>
             </div>
           </div>
         </div>
+        <div class="specail-cards-btns">
+                <router-link to="/services">
+                    <button class="gradient-btn">See our Plans</button>
+                </router-link>
+                <router-link to="/portfolio">
+                    <button class="simple-btn">Unique Project?</button>
+                </router-link>
+                
+            </div>
       </div>
     </div>
   </template>

@@ -7,7 +7,7 @@
                         <img src="@/assets/images/logo-icon.png" alt="">
                     </div>
                     <div class="work-head">
-                        <h2>Why work <span class="animated-2"> with us?</span></h2>
+                        <h2>Why work <span class="animated-2">with us?</span></h2>
                     </div>
                 </div>
                 <div class="work-row-2">

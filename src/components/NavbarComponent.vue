@@ -15,7 +15,7 @@
             <router-link to="/portfolio" exact-active-class="nav-active" active-class="nav-active">
                 <li>Portfolio</li>
             </router-link>
-            <router-link to="/" exact-active-class="nav-active" active-class="nav-active">
+            <router-link to="/team" exact-active-class="nav-active" active-class="nav-active">
                 <li>Team</li>
             </router-link>
             <router-link to="/contact" exact-active-class="nav-active" active-class="nav-active">
@@ -54,7 +54,7 @@
                         @click="closeNav">
                         <li>Portfolio</li>
                     </router-link>
-                    <router-link to="/" exact-active-class="nav-active" active-class="nav-active" @click="closeNav">
+                    <router-link to="/team" exact-active-class="nav-active" active-class="nav-active" @click="closeNav">
                         <li>Team</li>
                     </router-link>
                     <router-link to="/contact" exact-active-class="nav-active" active-class="nav-active"

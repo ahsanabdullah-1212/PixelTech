@@ -1,7 +1,7 @@
 <template>
   <div class="main-review-section">
     <div class="review-context">
-      <h2>What our clients think of <span class="animated-2">Pixel Tech.</span></h2>
+      <h2>What our clients think of <span class="animated-2">PixelTech.</span></h2>
       <p>We take pride in being transparent about our expertise and — we’re thrilled that our clients appreciate it too.
       </p>
     </div>

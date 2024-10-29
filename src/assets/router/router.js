@@ -20,6 +20,7 @@ const routes = [
       { path: 'portfolio', name: 'AboutUs', component: () => import('../pages/portfolioUs.vue') },
       { path: 'blogs', name: 'Blogs', component: () => import('../pages/BlogsPage.vue') },
       { path: 'contact', name: 'ContactPage', component: () => import('../pages/ContactPage.vue') },
+      { path: 'team', name: 'TeamPage', component: () => import('../pages/TemPage.vue') },
     ]
   },
 

@@ -44,11 +44,16 @@
 
                         <div class="contact-form-group">
                             <label for="budget">What is your estimated budget?</label>
-                            <select id="budget" v-model="formData.budget">
-                                <option value="$0 - $1000">$0 - $1000</option>
-                                <option value="$1000 - $5000">$1000 - $5000</option>
-                                <option value="$5000+">$5000+</option>
-                            </select>
+                            <div class="dropdown-container" ref="dropdownContainer">
+                                <input type="text" id="budget" v-model="selectedBudget" placeholder="Select your budget"
+                                    readonly />
+                                <button @click.stop="toggleDropdown" class="dropdown-button">▼</button>
+                                <div v-if="dropdownVisible" class="dropdown-options" @click.stop>
+                                    <div @click="selectOption('$0 - $1000')">$0 - $1000</div>
+                                    <div @click="selectOption('$1000 - $5000')">$1000 - $5000</div>
+                                    <div @click="selectOption('$5000+')">$5000+</div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="contact-form-group">
@@ -81,7 +86,7 @@
             <div class="contact-col-2">
                 <div class="booking-box">
                     <div class="book-row1">
-                        <p>Book a call</p><img src="@/assets/images/call.svg" alt="">
+                        <p>Book a call</p><img src="@/assets/images/call.svg" alt="" />
                     </div>
                     <div class="book-dsp">
                         <p>Choose a time that fits your schedule, and we will arrange a video or voice call—whichever
@@ -90,10 +95,8 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
-
 <script>
 export default {
     data() {
@@ -104,9 +107,9 @@ export default {
                 email: '',
                 phone: '',
                 helpOptionsSelected: [],
-                budget: '',
                 details: '',
             },
+            selectedBudget: '',  // <-- Ensure this is declared
             helpOptions: [
                 '3D Character',
                 '3D Game Assets',
@@ -114,31 +117,83 @@ export default {
                 'NFT Design',
                 'Product Visualization',
                 'Website Customizers'
-            ]
+            ],
+            dropdownVisible: false,
         };
     },
     methods: {
-        toggleHelpOption(option) {
-            if (this.formData.helpOptionsSelected.includes(option)) {
-                this.formData.helpOptionsSelected = this.formData.helpOptionsSelected.filter(opt => opt !== option);
-            } else {
-                this.formData.helpOptionsSelected.push(option);
+        toggleDropdown() {
+            this.dropdownVisible = !this.dropdownVisible;
+        },
+        selectOption(option) {
+            this.selectedBudget = option; // Set the selected budget
+            this.dropdownVisible = false; // Hide the dropdown
+        },
+        closeDropdown(event) {
+            if (this.$refs.dropdownContainer && !this.$refs.dropdownContainer.contains(event.target)) {
+                this.dropdownVisible = false;
             }
         },
-        submitForm() {
-            // You can add your form submission logic here, including Google reCAPTCHA validation
-            console.log('Form data:', this.formData);
-        }
     },
     mounted() {
-        // Load Google reCAPTCHA
         const script = document.createElement('script');
         script.src = 'https://www.google.com/recaptcha/api.js';
         script.async = true;
         document.head.appendChild(script);
+        document.addEventListener('click', this.closeDropdown);
+    },
+    beforeUnmount() {
+        document.removeEventListener('click', this.closeDropdown);
     }
 };
 </script>
 
+
+
 <style scoped>
+.dropdown-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.dropdown-container input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.dropdown-button {
+    margin-left: 4px;
+    padding: 8px;
+    background-color: #343639;
+    color: #696464;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1f1e1e;
+    width: 93%;
+    color: var(--white-color);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-options div {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.dropdown-options div:hover {
+    background-color: #ddd;
+}
 </style>

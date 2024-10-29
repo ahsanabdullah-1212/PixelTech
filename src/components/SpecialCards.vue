@@ -1,7 +1,7 @@
 <template>
     <div class="main-special-cards">
         <div class="special-card-info">
-            <h1><span class="animated">Specializing</span> in 6 core service areas.</h1>
+            <h1><span class="animated-7">Specializing</span> in 6 core service areas.</h1>
         </div>
         <div class="parent-special-card">
             <div class="special-cards-container-1">
