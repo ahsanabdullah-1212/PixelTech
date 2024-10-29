@@ -91,13 +91,13 @@
     font-size: 25px;
     margin: 5px;
     background: linear-gradient(90deg, #29DFFD 0%, #245AF8 100%);
-    -webkit-background-clip: text;
+    /* -webkit-background-clip: text; */
     -webkit-text-fill-color: transparent;
     color: transparent;
 }
 .team-text {
     background: linear-gradient(90deg, #29DFFD 0%, #245AF8 100%);
-    -webkit-background-clip: text;
+    /* -webkit-background-clip: text; */
     -webkit-text-fill-color: transparent;
     color: transparent;
     font-size: 52px;
@@ -118,7 +118,7 @@
 
 .team-mem-name h1 {
     background: linear-gradient(180deg, #FFFFFF 51.38%, #999999 100%);
-    -webkit-background-clip: text;
+    /* -webkit-background-clip: text; */
     -webkit-text-fill-color: transparent;
     margin-top: 10px;
     font-size: 25px;
@@ -126,7 +126,7 @@
 
 .team-mem-role h1 {
     background: linear-gradient(90deg, #29DFFD 0%, #245AF8 100%);
-    -webkit-background-clip: text;
+    /* -webkit-background-clip: text; */
     -webkit-text-fill-color: transparent;
     color: transparent;
     font-size: 16px;
