@@ -2514,3 +2514,84 @@ textarea {
 .register-button:hover {
     background-color: #16a085;
 }
+/*      loader      */ 
+.modelloader {
+    position: absolute;
+    top: 0;
+    right: 200px;
+    /* width: 14%; */
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 800px) {
+    .modelloader {
+        right: 350px;
+    }
+}
+
+
+@media(max-width:500px){
+    .modelloader {
+        right: 169px;
+    }
+}
+@media(max-width:380px){
+    .modelloader {
+        right: 145px;
+    }
+}
+@media(max-width:330px){
+    .modelloader {
+        right: 125px;
+    }
+}
+@media(max-width:800px){
+    .modelloader {
+        margin-top: 230px;
+    }
+}
+.loader-component {
+    width: 100%;
+}
+.loader {
+    display: flex;
+    justify-content: center; /* Center dots horizontally */
+    align-items: center; /* Center dots vertically */
+    height: 100%; /* Full height of parent div */
+    width: 100%; /* Full width of parent div */
+  }
+  
+  .dot {
+    width: 15px; /* Dot size */
+    height: 15px; /* Dot size */
+    margin: 0 5px; /* Space between dots */
+    border-radius: 50%; /* Circular dots */
+    background-color: #3498db; /* Dot color */
+    animation: wave 1s infinite; /* Wave animation */
+  }
+  
+  /* Wave animation */
+  .dot:nth-child(1) {
+    animation-delay: 0s; /* No delay */
+  }
+  
+  .dot:nth-child(2) {
+    animation-delay: 0.2s; /* Slight delay for wave effect */
+  }
+  
+  .dot:nth-child(3) {
+    animation-delay: 0.4s; /* More delay for wave effect */
+  }
+  
+  @keyframes wave {
+    0%, 100% {
+      transform: translateY(0); /* Original position */
+    }
+    50% {
+      transform: translateY(-20px); /* Move up */
+    }
+  }

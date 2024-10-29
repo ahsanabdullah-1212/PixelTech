@@ -26,9 +26,15 @@
                         </router-link>
                     </div>
                 </div>
-                <div class="pixel-col-2">
+               
+                <div class="pixel-col-2" style="position:relative">
                     <div class="pixel-image">
                         <div class="model-viewer" ref="modelViewer"></div>
+                    </div>
+                </div>
+                <div class="modelloader pixel-col-2" v-if="modelLoader" >
+                    <div class="loader-component"  >
+                        <LoaderComponent />
                     </div>
                 </div>
             </div>
@@ -38,9 +44,18 @@
 <script>
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import LoaderComponent from './LoaderComponent.vue';
 
 export default {
     name: 'ThreeDModelViewer',
+    components: {
+        LoaderComponent,
+    },
+    data() {
+        return {
+            modelLoader: true,
+        }
+    },
     mounted() {
         this.init();
     },
@@ -124,6 +139,13 @@ export default {
                 const action = this.mixer.clipAction(gltf.animations[0]);
                 action.timeScale = 0.4;
                 action.play();
+
+                // Hide loader after model is fully loaded
+                this.modelLoader = false;
+            }, undefined, (error) => {
+                console.error('An error occurred while loading the model:', error);
+                // Optionally, hide loader if model fails to load
+                this.modelLoader = false;
             });
         },
 
@@ -175,8 +197,7 @@ export default {
             this.renderer.dispose();
         }
     }
-
-}; 
+};
 </script>
 
 <style scoped>
