@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const baseURL = 'http://127.0.0.1:8000'; 
+export const baseURL = 'https://pixeltechapi.stechsole.com/'; 
 
 const apiClient = axios.create({
   baseURL, 
@@ -11,7 +11,7 @@ const apiClient = axios.create({
 
 
 apiClient.interceptors.request.use((config) => {
-  const token = localStorage.getItem('authToken'); 
+  const token = localStorage.getItem('authToken-pixeltech'); 
   if (token) {
     config.headers.Authorization = `Bearer ${token}`; 
   }
