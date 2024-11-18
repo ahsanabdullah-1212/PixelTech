@@ -14,6 +14,7 @@
 </template>
 
 <script>
+// import { useMetaTags } from '@/Hooks/useMetaTags';  
 import NavbarComponent from '@/components/NavbarComponent.vue'
 import TalkToUs from '@/components/TalkToUs.vue'
 import ReviewSection from '@/components/ReviewSection.vue'
@@ -23,7 +24,7 @@ import HeroSection from '@/components/HeroSection.vue'
 import SpecialCards from '@/components/SpecialCards.vue'
 import WorkSection from '@/components/WorkSection.vue'
 import FooterContainer from '@/components/FooterContainer.vue'
-// import BrandingContainer from '@/components/BrandingContainer.vue'
+import { useMetaTags } from '@/Hooks/useMetaTags';
 
 export default {
     name: 'LandingPage',
@@ -38,6 +39,10 @@ export default {
         FooterContainer,
         WorkSection,
         SpecialCards,
-    }
+    },
+    setup() {
+        useMetaTags('Landing Page'); // Replace 'landing-page' with the actual page_name in your database
+    },
+   
 }
 </script>

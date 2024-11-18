@@ -168,6 +168,21 @@ a {
         font-size: 11px;
     }
 }
+.gradient-btn-3 {
+    border: none;
+    width: 120px;
+    padding: 15px 15px;
+    color: var(--white-color);
+    cursor: pointer;
+    border-radius: 25px;
+    background: linear-gradient(90deg, #29DFFD 0%, #245AF8 100%);
+}
+
+@media(max-width:855px) {
+    .gradient-btn-3 {
+        font-size: 11px;
+    }
+}
 
 /*             Sidebar styles            */
 .sidebar {
@@ -628,7 +643,7 @@ a {
 
 @media(max-width:800px) {
     .semi-card-1 {
-        width: 300px;
+        width: 416px;
     }
 }
 
@@ -660,7 +675,7 @@ a {
 
 @media(max-width:800px) {
     .semi-card-2 {
-        width: 300px;
+        width: 416px;
     }
 }
 
@@ -692,7 +707,7 @@ a {
 
 @media(max-width:800px) {
     .Special-card-1 {
-        width: 300px;
+        width: 416px;
     }
 }
 
@@ -2394,6 +2409,7 @@ textarea {
     color: white;
     text-decoration: none;
     font-size: 18px;
+    margin-left: -14px;
     padding: 10px;
     border-radius: 5px;
     transition: background 0.3s;
@@ -2462,11 +2478,12 @@ textarea {
 .admin-layout {
     background-color: #F4F4F4;
     display: flex;
-    height: auto;
+    height: 110vh;
 }
 
 .content {
     flex-grow: 1;
+    height: 130vh;
     margin-left: 200px;
     padding: 20px;
     background-color: #f4f4f4;
@@ -2477,7 +2494,6 @@ textarea {
 
 /* Add some basic styling for the register form */
 .register-page {
-    max-width: 400px;
     margin: auto;
     padding: 20px;
     border: 1px solid #ccc;

@@ -15,6 +15,9 @@ import portfolioHeroSection from '@/components/portfolioHeroSection.vue'
 import TalkToUs from '@/components/TalkToUs.vue'
 import CreationCards from '@/components/CreationCards.vue'
 import FooterContainer from '@/components/FooterContainer.vue'
+import { useMetaTags } from '@/Hooks/useMetaTags';
+
+
 
 export default {
     name: 'LandingPage',
@@ -24,6 +27,9 @@ export default {
         TalkToUs,
         CreationCards,
         FooterContainer,
-    }
+    },
+    setup() {
+        useMetaTags('Portfolio'); // Replace 'landing-page' with the actual page_name in your database
+    },
 }
 </script>

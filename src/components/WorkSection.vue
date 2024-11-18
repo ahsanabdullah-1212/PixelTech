@@ -24,11 +24,12 @@
                                 satisfaction.
                             </p>
                         </div>
-                        <router-link to="/blogs">
+                        
                             <div class="work-btn">
+                                <router-link to="/blogs">
                                 <button class="gradient-btn-2">Learn more</button>
+                            </router-link>
                             </div>
-                        </router-link>
                     </div>
                     <div class="work-col-2">
                         <div class="work-image">

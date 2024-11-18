@@ -9,24 +9,27 @@
           <span v-if="!isClosed">Dashboard</span>
         </router-link></li>
 
-      <li><router-link class="dashboard-nav-item" to="/admin/settings">
+      <!-- <li><router-link class="dashboard-nav-item" to="/admin/settings">
           <i class="fas fa-users"></i>
           <span v-if="!isClosed">Users</span>
-        </router-link></li>
+        </router-link></li> -->
 
-      <li><router-link class="dashboard-nav-item" to="/admin/profile">
+      <!-- <li><router-link class="dashboard-nav-item" to="/admin/profile">
           <i class="fas fa-chart-line"></i>
           <span v-if="!isClosed">Analytics</span>
+        </router-link></li> -->
+      <li><router-link class="dashboard-nav-item" to="/admin/meta-tags">
+        <i class="fa-brands fa-meta"></i>
+          <span v-if="!isClosed">Meta Tags</span>
         </router-link></li>
 
-      <li><router-link class="dashboard-nav-item" to="/admin/settings">
-          <i class="fas fa-cog"></i>
-          <span v-if="!isClosed">Settings</span>
+      <li><router-link class="dashboard-nav-item" to="/admin/admin-profile">
+        <i class="fa-solid fa-user"></i>
+          <span v-if="!isClosed">Change Password</span>
         </router-link></li>
-
-      <li><router-link class="dashboard-nav-item" to="/admin/logout">
-          <i class="fas fa-sign-out-alt"></i>
-          <span v-if="!isClosed">Logout</span>
+      <li><router-link class="dashboard-nav-item" to="/admin/blogs">
+        <i class="fa-brands fa-blogger-b"></i>
+          <span v-if="!isClosed">Blogs</span>
         </router-link></li>
     </ul>
   </div>
@@ -81,7 +84,6 @@ export default {
 .sidebar-nav-links li a {
   color: #ecf0f1;
   text-decoration: none;
-  padding: 10px 20px;
   display: flex;
   align-items: center;
 }
@@ -97,6 +99,29 @@ export default {
 }
 
 .sidebar-closed .sidebar-nav-links li a span {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.sidebar-nav-links li {
+  color: #ecf0f1;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-nav-links li i {
+  margin-right: 10px;
+}
+
+.sidebar-nav-links li span {
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-closed .sidebar-nav-links li span {
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;

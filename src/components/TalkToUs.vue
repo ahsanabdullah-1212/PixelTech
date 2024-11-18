@@ -11,11 +11,12 @@
                             button below
                         </p>
                     </div>
-                    <router-link to="/blogs">
-                        <div class="work-btn">
-                        <button class="simple-btn-2">Talk to us</button>
+
+                    <div class="work-btn">
+                        <router-link to="/blogs">
+                            <button class="simple-btn-2">Talk to us</button>
+                        </router-link>
                     </div>
-                    </router-link>
                     <div class="talk-icon">
                         <img src="@/assets/images/hero-section.png" alt="">
                     </div>

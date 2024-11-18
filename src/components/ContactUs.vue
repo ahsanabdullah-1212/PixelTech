@@ -64,7 +64,7 @@
 
                         <!-- Google reCAPTCHA -->
                         <div class="contact-form-group">
-                            <div class="g-recaptcha" data-sitekey="your-site-key"></div>
+                            <div class="g-recaptcha" data-sitekey="6Le3CXcqAAAAAEMGE_kPydU8KSbvg8XDCdC26AF1"></div>
                         </div>
 
 

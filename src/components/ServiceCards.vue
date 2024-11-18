@@ -65,11 +65,14 @@
                 </div>
             </div>
         </div>
-        <router-link to="/services">
-            <div class="specail-cards-btns"><button class="gradient-btn">See our Plans</button><button
-                    class="simple-btn">Unique Project?</button></div>
-        </router-link>
-
+        <div class="specail-cards-btns">
+            <router-link to="/services">
+                <button class="gradient-btn">See our Plans</button>
+            </router-link>
+            <router-link to="/portfolio">
+                <button class="simple-btn">Unique Project?</button>
+            </router-link>
+        </div>
     </div>
 </template>
 

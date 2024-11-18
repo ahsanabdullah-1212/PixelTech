@@ -17,6 +17,8 @@ import TalkToUs from '@/components/TalkToUs.vue'
 import ServiceCards from '@/components/ServiceCards.vue'
 import FooterContainer from '@/components/FooterContainer.vue'
 import WorkSection from '@/components/WorkSection.vue';
+import { useMetaTags } from '@/Hooks/useMetaTags';
+
 
 export default {
     name: 'LandingPage',
@@ -27,6 +29,9 @@ export default {
     ServiceCards,
     WorkSection,
     FooterContainer,
-    }
+    },
+    setup() {
+        useMetaTags('Services Page'); // Replace 'landing-page' with the actual page_name in your database
+    },
 }
 </script>

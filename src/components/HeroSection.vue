@@ -20,11 +20,13 @@
                     <p>We turn your brand vision into captivating 3D animations and visual experiences
                         that captivate and engage your audience</p>
                 </div>
-                <router-link to="/contact">
-                    <div class="hero-btn">
+
+                <div class="hero-btn">
+                    <router-link to="/contact">
                         <button class="gradient-btn">Launch your idea</button>
-                    </div>
-                </router-link>
+                    </router-link>
+                </div>
+
             </div>
             <div class="hero-line">
                 <img src="@/assets/images/border-line.png" alt="">

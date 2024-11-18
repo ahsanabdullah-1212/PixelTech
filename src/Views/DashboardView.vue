@@ -6,51 +6,22 @@
       <header class="dashboard-header">
         <div class="dashboard-header-left">
           <h1>Dashboard Overview</h1>
-          <input type="text" class="dashboard-search-input" placeholder="Search...">
         </div>
-        <div class="dashboard-header-right">
-          <button class="dashboard-notification-btn">
-            <i class="fas fa-bell"></i>
-            <span class="dashboard-notification-dot"></span>
-          </button>
-          <div class="dashboard-profile">
-            <img src="https://via.placeholder.com/32" alt="Profile">
-            <span>Admin</span>
-          </div>
-        </div>
+  
       </header>
-
-      <!-- Dashboard Cards -->
-      <main class="dashboard-dashboard">
-        <div class="dashboard-card">
-          <div class="dashboard-card-content">
-            <h2>Total Users</h2>
-            <p>1,234</p>
-            <i class="fas fa-users dashboard-icon"></i>
-          </div>
-        </div>
-
-        <div class="dashboard-card">
-          <div class="dashboard-card-content">
-            <h2>New Orders</h2>
-            <p>567</p>
-            <i class="fas fa-shopping-cart dashboard-icon"></i>
-          </div>
-        </div>
-
-        <div class="dashboard-card">
-          <div class="dashboard-card-content">
-            <h2>Revenue</h2>
-            <p>$23,456</p>
-            <i class="fas fa-dollar-sign dashboard-icon"></i>
-          </div>
-        </div>
-      </main>
+      <div class="dashboard-perv">
+    <i>This is our Dashboard</i>
+  </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.dashboard-perv {
+  margin-top: 100px;
+  font-size: 35px;
+  margin-top: 50px; 
+}
 /* General Styles */
 body {
   font-family: 'Arial', sans-serif;
@@ -107,13 +78,17 @@ body {
 
 .dashboard-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  background-color: white;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.dashboard-header-left {
+  /* height: 100vh; */
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
 .dashboard-header-left h1 {
   margin: 0;
 }

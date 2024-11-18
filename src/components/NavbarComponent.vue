@@ -7,7 +7,7 @@
         </router-link>
         <ul class="nav-links" :class="{ 'nav-active': isNavOpen }">
             <router-link to="/blogs" exact-active-class="nav-active" active-class="nav-active">
-                <li>About Us</li>
+                <li>Blogs</li>
             </router-link>
             <router-link to="/services" exact-active-class="nav-active" active-class="nav-active">
                 <li>Services</li>
@@ -22,7 +22,7 @@
                 <li>Contact Us</li>
             </router-link>
             <router-link to="/contact">
-                <div class="btn-nav"><button class="gradient-btn">Get a quote</button></div>
+                <div class="btn-nav"><button class="gradient-btn-3">Get a quote</button></div>
             </router-link>
             
         </ul>
@@ -44,7 +44,7 @@
                     </div>
                     <router-link to="/blogs" exact-active-class="nav-active" active-class="nav-active"
                         @click="closeNav">
-                        <li>About Us</li>
+                        <li>Blogs</li>
                     </router-link>
                     <router-link to="/services" exact-active-class="nav-active" active-class="nav-active"
                         @click="closeNav">

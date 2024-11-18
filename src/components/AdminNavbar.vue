@@ -5,21 +5,42 @@
       </div>
       <div class="admin-navbar-right">
         <ul class="admin-nav-links">
-          <li><router-link to="/admin/dashboard">Dashboard</router-link></li>
-          <li><router-link to="/admin/settings">Settings</router-link></li>
-          <li><router-link to="/admin/profile">Profile</router-link></li>
-          <li><router-link to="/admin/logout">Logout</router-link></li>
+          <li @click="logout">
+            <span v-if="!isClosed">Logout</span></li>
         </ul>
       </div>
     </div>
   </template>
   
   <script>
+  import apiClient from '@/Config/apiClient.js';
   export default {
     name: "AdminNavbarSection",
+    methods: {
+    async logout() {
+      try {
+        // Call the logout API
+        await apiClient.post("/api/logout", {}, {
+          headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` }
+        });
+
+        // Remove auth token from local storage
+        localStorage.removeItem("authToken");
+
+        // Redirect to login page
+        this.$router.push("/login");
+      } catch (error) {
+        console.error("Logout failed:", error);
+        alert("Failed to log out. Please try again.");
+      }
+    },
+  },
   };
   </script>
   
   <style scoped>
+  .admin-nav-links {
+    cursor: pointer;
+  }
   </style>
   
