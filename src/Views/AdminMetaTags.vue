@@ -2,8 +2,9 @@
   <div class="meta-tags-management">
     <h2>Meta Tags Management</h2>
     <!-- Button to add a new meta tag -->
-    <div class="add-button"><button @click="createMetaTags"><i class="fa-solid fa-plus"></i></button></div>
-
+    <div class="add-button">
+      <button @click="createMetaTags"><i class="fa-solid fa-plus"></i></button>
+    </div>
 
     <!-- Table to display meta tags -->
     <table v-if="metaTags.length">
@@ -34,50 +35,70 @@
         </tr>
       </tbody>
     </table>
+
+    <!-- "No Records Found" message -->
+    <p v-else class="no-records">No Records Found</p>
+
     <!-- Pagination Controls -->
     <div v-if="totalPages > 1" class="pagination">
-      <button @click="changePage(currentPage - 1)" :disabled="currentPage === 1">Previous</button>
+      <button
+        v-if="currentPage > 1"
+        @click="changePage(currentPage - 1)"
+        :disabled="currentPage === 1"
+      >
+        Previous
+      </button>
       <span>Page {{ currentPage }} of {{ totalPages }}</span>
-      <button @click="changePage(currentPage + 1)" :disabled="currentPage === totalPages">Next</button>
+      <button
+        v-if="currentPage < totalPages"
+        @click="changePage(currentPage + 1)"
+        :disabled="currentPage === totalPages"
+      >
+        Next
+      </button>
     </div>
   </div>
 </template>
 
 <script>
-import apiClient from '@/Config/apiClient.js';
+import apiClient from "@/Config/apiClient.js";
 
 export default {
   data() {
     return {
       metaTags: [],
-      currentPage: 1, 
+      currentPage: 1,
       totalPages: 1,
     };
   },
   methods: {
     // Fetch paginated meta tags from Laravel API
-    fetchMetaTags() {
-      apiClient.get(`/api/meta-tags?page=${this.currentPage}&per_page=4`)
-        .then(response => {
-          this.metaTags = response.data.data; // Paginated data
-          this.totalPages = response.data.last_page; // Total number of pages
+    fetchMetaTags(page = 1) {
+      apiClient
+        .get(`/api/meta-tags?page=${page}&per_page=4`)
+        .then((response) => {
+          this.metaTags = response.data.data;
+          this.currentPage = response.data.current_page;
+          this.totalPages = response.data.last_page;
         })
-        .catch(error => {
+        .catch((error) => {
           console.error("Error fetching meta tags:", error);
         });
     },
     // Open form for adding a new meta tag
     createMetaTags() {
-      this.$router.push({ name: 'AddMetaTag' });
+      this.$router.push({ name: "AddMetaTag" });
     },
     // Delete a meta tag
     deleteMetaTag(id) {
-      if (confirm('Are you sure you want to delete this meta tag?')) {
-        apiClient.delete(`/api/meta-tags/${id}`)
+      if (confirm("Are you sure you want to delete this meta tag?")) {
+        apiClient
+          .delete(`/api/meta-tags/${id}`)
           .then(() => {
-            this.fetchMetaTags();
+            // Refresh list and redirect to the first page
+            this.fetchMetaTags(1);
           })
-          .catch(error => {
+          .catch((error) => {
             console.error("Error deleting meta tag:", error);
           });
       }
@@ -85,14 +106,13 @@ export default {
     // Change page and fetch meta tags for the new page
     changePage(page) {
       if (page >= 1 && page <= this.totalPages) {
-        this.currentPage = page;
-        this.fetchMetaTags();
+        this.fetchMetaTags(page);
       }
     },
   },
   mounted() {
     this.fetchMetaTags(); // Fetch meta tags on component mount
-  }
+  },
 };
 </script>
 
@@ -148,5 +168,13 @@ button {
 .pagination button {
   margin: 0 5px;
   padding: 8px 12px;
+}
+
+.no-records {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #888;
+  margin-top: 20px;
 }
 </style>

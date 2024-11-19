@@ -1,10 +1,17 @@
 <template>
     <div class="view-blog-container">
       <h1 class="page-title">View Blog</h1>
-      <div v-if="blog">
+      <div class="Article-card" v-if="blog">
+        <img :src="baseURL + blog.image" alt="Blog Image" class="article-image" />
+        <div class="Article-card-content">
+          <p class="Article-card-date">{{ blog.title }}</p>
+          <h3 class="Article-card-title">{{ blog.text }}</h3>
+        </div>
+      </div>
+      <!-- <div v-if="blog">
         <div class="blog-header">
-          <h2 class="blog-title">{{ blog.title }}</h2>
           <img :src="baseURL + blog.image" alt="Blog Image" class="blog-image" />
+          <h2 class="blog-title">{{ blog.title }}</h2>
         </div>
         <div class="blog-content">
           <p><strong>Text:</strong></p>
@@ -13,7 +20,7 @@
         <div class="blog-footer">
           <button @click="goBack" class="back-btn">Back to Blog List</button>
         </div>
-      </div>
+      </div> -->
       <div v-else>
         <p>Loading...</p>
       </div>
@@ -57,6 +64,9 @@
     margin: 30px auto;
     max-width: 800px;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

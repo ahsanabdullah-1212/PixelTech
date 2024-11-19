@@ -37,7 +37,7 @@
           title: '',
           description: ''
         },
-        predefinedPages: ['Landing Page', 'Services Page', 'Portfolio', 'Blogs', 'Our Team','Contact Us']
+        predefinedPages: ['Landing Page', 'Services Page', 'Portfolio', 'Blogs', 'Our Team','Contact']
       };
     },
     methods: {
