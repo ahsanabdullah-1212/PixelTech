@@ -41,7 +41,7 @@ export default {
                     });
 
                     if (response.data.data.token) {
-                        localStorage.setItem('authToken-pixeltech', response.data.data.token);
+                        localStorage.setItem('authToken', response.data.data.token);
 
                         if (response.data.data.type === 'admin') {
                             this.$router.push("/admin/dashboard");

@@ -48,7 +48,7 @@ export default {
         });
         
         if (response.data.token) {
-          localStorage.setItem('authToken-pixeltech', response.data.token);
+          localStorage.setItem('authToken', response.data.token);
           this.$router.push('/login');
         } else {
           alert('Registration failed. Please try again.');
