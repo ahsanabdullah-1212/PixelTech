@@ -231,8 +231,8 @@ button:hover {
 .blogs-table th,
 .blogs-table td {
   padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+  text-align: center;
+  border: 1px solid #ddd;
 }
 
 .blogs-table th {
