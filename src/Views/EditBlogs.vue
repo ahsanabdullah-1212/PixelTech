@@ -4,14 +4,19 @@
     <form @submit.prevent="updateBlog" class="blog-form">
       <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" id="title" v-model="title" placeholder="Enter blog title" required class="form-input" />
+        <input type="text" id="title" v-model="title" placeholder="Enter blog title" maxlength="255" required
+          class="form-input" />
+        <div v-if="title.length === 255" class="text-warning">
+          <span class="fa fa-exclamation-circle" style="color: red; margin-right: 5px;"></span>
+          You have reached the maximum character limit (255).
+        </div>
       </div>
       <div class="form-group">
         <label for="image">Image</label>
         <input type="file" id="image" @change="handleImageChange" class="form-input" />
         <div v-if="imagePreview" class="image-preview">
-          <img :src="baseURL+imagePreview" alt="Preview" class="image-preview-img" v-if="!newImage"/>
-          <img :src="imagePreview" alt="Preview" class="image-preview-img" v-else/>
+          <img :src="baseURL + imagePreview" alt="Preview" class="image-preview-img" v-if="!newImage" />
+          <img :src="imagePreview" alt="Preview" class="image-preview-img" v-else />
         </div>
       </div>
       <div class="form-group">
@@ -41,21 +46,21 @@ export default {
   },
   created() {
     this.fetchBlog();
-    this.baseURL = baseURL+'/storage/uploads/';
+    this.baseURL = baseURL + '/storage/uploads/';
   },
   methods: {
     fetchBlog() {
-  apiClient.get(`/api/blogs/${this.$route.params.id}`).then((response) => {
-    this.title = response.data.title;
-    this.image = response.data.image;
-    this.text = response.data.text;
+      apiClient.get(`/api/blogs/${this.$route.params.id}`).then((response) => {
+        this.title = response.data.title;
+        this.image = response.data.image;
+        this.text = response.data.text;
 
-    // Set the imagePreview directly from the response if image exists
-    if (this.image) {
-      this.imagePreview = this.image;
-    }
-  });
-},
+        // Set the imagePreview directly from the response if image exists
+        if (this.image) {
+          this.imagePreview = this.image;
+        }
+      });
+    },
     handleImageChange(event) {
       this.newImage = true;
       const file = event.target.files[0];
@@ -79,8 +84,8 @@ export default {
       apiClient
         .post(`/api/blogs/${this.$route.params.id}`, formData, {
           headers: {
-              'Content-Type': 'multipart/form-data',
-            },
+            'Content-Type': 'multipart/form-data',
+          },
         })
         .then(() => {
           this.$router.push({ name: 'BlogList' });

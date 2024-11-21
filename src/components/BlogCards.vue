@@ -5,8 +5,8 @@
       <div class="Article-card" v-for="(card, index) in displayedCards" :key="index">
         <img :src="card.imageUrl" alt="Card Image" class="article-image" />
         <div class="Article-card-content">
-          <p class="Article-card-date">{{ card.title }}</p>
-          <h3 class="Article-card-title">{{ card.text }}</h3>
+          <p class="Article-card-date">{{ card.date }}</p>
+          <h3 class="Article-card-title">{{ card.title }}</h3>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@ export default {
     return {
       cards: [], 
       displayedCards: [],
-      baseURL: baseURL + "/storage/uploads", 
+      baseURL: baseURL , 
       currentPage: 1, 
       itemsPerPage: 4, 
       hasMore: true, 
@@ -44,9 +44,9 @@ export default {
           const blogs = response.data.data || []; // Adjust for API response structure
           if (blogs.length) {
             const newCards = blogs.map((blog) => ({
-              imageUrl: blog.image ? `${this.baseURL}/${blog.image}` : "",
+              imageUrl: blog.image ? `${this.baseURL}/storage/uploads/${blog.image}` : "",
               title: blog.title,
-              text: blog.text,
+              date : blog.formatted_date,
             }));
 
             this.cards.push(...newCards);

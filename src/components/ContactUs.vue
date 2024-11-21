@@ -22,8 +22,7 @@
                         <div class="contact-row">
                             <div class="contact-form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" v-model="formData.email"
-                                    placeholder="johndoe@gmail.com" />
+                                <input type="email" id="email" v-model="formData.email" placeholder="johndoe@gmail.com" />
                             </div>
 
                             <div class="contact-form-group">
@@ -32,22 +31,29 @@
                             </div>
                         </div>
 
+                        <!-- Help Options -->
                         <div class="contact-form-group">
                             <label>What do you need help with?</label>
                             <div class="contact-help-options">
-                                <button type="button" class="contact-help-btn" v-for="option in helpOptions"
-                                    :key="option" @click="toggleHelpOption(option)">
+                                <button
+                                    type="button"
+                                    class="contact-help-btn"
+                                    v-for="option in helpOptions"
+                                    :key="option"
+                                    :class="{ active: formData.helpOptionsSelected.includes(option) }"
+                                    @click="toggleHelpOption(option)"
+                                >
                                     {{ option }}
                                 </button>
                             </div>
                         </div>
 
+                        <!-- Budget Dropdown -->
                         <div class="contact-form-group">
                             <label for="budget">What is your estimated budget?</label>
                             <div class="dropdown-container" ref="dropdownContainer">
-                                <input type="text" id="budget" v-model="selectedBudget" placeholder="Select your budget"
-                                    readonly />
-                                <button @click.stop="toggleDropdown" class="dropdown-button">▼</button>
+                                <input type="text" id="budget" v-model="formData.budget" placeholder="Select your budget" readonly />
+                                <button type='button' @click.stop="toggleDropdown" class="dropdown-button">▼</button>
                                 <div v-if="dropdownVisible" class="dropdown-options" @click.stop>
                                     <div @click="selectOption('$0 - $1000')">$0 - $1000</div>
                                     <div @click="selectOption('$1000 - $5000')">$1000 - $5000</div>
@@ -56,67 +62,60 @@
                             </div>
                         </div>
 
+                        <!-- Project Details -->
                         <div class="contact-form-group">
                             <label for="details">Enter your project details:</label>
-                            <textarea id="details" v-model="formData.details"
-                                placeholder="Tell us more about your project..."></textarea>
+                            <textarea id="details" v-model="formData.details" placeholder="Tell us more about your project..."></textarea>
                         </div>
 
-                        <!-- Google reCAPTCHA -->
+                        <!-- Google reCAPTCHA
                         <div class="contact-form-group">
                             <div class="g-recaptcha" data-sitekey="6Le3CXcqAAAAAEMGE_kPydU8KSbvg8XDCdC26AF1"></div>
-                        </div>
+                        </div> -->
 
-
-                    </form>
-
-                    <footer class="contact-footer">
-                        <div class="contact-infos">
-                            <span><img src="@/assets/images/mail.svg"
-                                    alt="">&nbsp;&nbsp;hr@pixelsbox.com.ph</span>&nbsp;
-                            <span><img src="@/assets/images/call.svg" alt="">&nbsp;&nbsp;+92 336 255 7391</span>
-                        </div>
+                        <!-- Submit Button -->
                         <div class="contact-btn">
-                            <button type="submit" class="gradient-btn">Send Enquiry</button>
+                            <button class="gradient-btn">Send Enquiry</button>
                         </div>
-
-                    </footer>
+                    </form>
                 </div>
             </div>
+
             <div class="contact-col-2">
                 <div class="booking-box">
                     <div class="book-row1">
                         <p>Book a call</p><img src="@/assets/images/call.svg" alt="" />
                     </div>
                     <div class="book-dsp">
-                        <p>Choose a time that fits your schedule, and we will arrange a video or voice call—whichever
-                            you prefer.</p>
+                        <p>Choose a time that fits your schedule, and we will arrange a video or voice call—whichever you prefer.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
 <script>
+
 export default {
     data() {
         return {
             formData: {
-                fullName: '',
-                company: '',
-                email: '',
-                phone: '',
+                fullName: "",
+                company: "",
+                email: "",
+                phone: "",
                 helpOptionsSelected: [],
-                details: '',
+                details: "",
+                budget: "", // Collect selected budget here
             },
-            selectedBudget: '',  // <-- Ensure this is declared
             helpOptions: [
-                '3D Character',
-                '3D Game Assets',
-                '2D Motion Graphics',
-                'NFT Design',
-                'Product Visualization',
-                'Website Customizers'
+                "3D Character",
+                "3D Game Assets",
+                "2D Motion Graphics",
+                "NFT Design",
+                "Product Visualization",
+                "Website Customizers",
             ],
             dropdownVisible: false,
         };
@@ -126,31 +125,56 @@ export default {
             this.dropdownVisible = !this.dropdownVisible;
         },
         selectOption(option) {
-            this.selectedBudget = option; // Set the selected budget
-            this.dropdownVisible = false; // Hide the dropdown
+            this.formData.budget = option; // Save budget in formData
+            this.dropdownVisible = false;
         },
-        closeDropdown(event) {
-            if (this.$refs.dropdownContainer && !this.$refs.dropdownContainer.contains(event.target)) {
-                this.dropdownVisible = false;
+        toggleHelpOption(option) {
+            const index = this.formData.helpOptionsSelected.indexOf(option);
+            if (index === -1) {
+                this.formData.helpOptionsSelected.push(option);
+            } else {
+                this.formData.helpOptionsSelected.splice(index, 1);
             }
+        },
+        async submitForm() {
+            const formData = this.formData;
+        this.$apiClient
+          .post('/api/contactUs', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          })
+          .then(() => {
+            alert('Form submitted successfully!');
+          });
+        },
+        resetForm() {
+            this.formData = {
+                fullName: "",
+                company: "",
+                email: "",
+                phone: "",
+                helpOptionsSelected: [],
+                details: "",
+                budget: "",
+            };
         },
     },
     mounted() {
-        const script = document.createElement('script');
-        script.src = 'https://www.google.com/recaptcha/api.js';
+        const script = document.createElement("script");
+        script.src = "https://www.google.com/recaptcha/api.js";
         script.async = true;
         document.head.appendChild(script);
-        document.addEventListener('click', this.closeDropdown);
+        document.addEventListener("click", this.closeDropdown);
     },
     beforeUnmount() {
-        document.removeEventListener('click', this.closeDropdown);
-    }
+        document.removeEventListener("click", this.closeDropdown);
+    },
 };
 </script>
 
-
-
 <style scoped>
+/* Dropdown Styles */
 .dropdown-container {
     display: flex;
     align-items: center;
@@ -195,5 +219,11 @@ export default {
 
 .dropdown-options div:hover {
     background-color: #ddd;
+}
+
+/* Active Button Styling */
+.contact-help-btn.active {
+    background-color: #29DFFD;
+    color: white;
 }
 </style>

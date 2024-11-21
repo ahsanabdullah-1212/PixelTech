@@ -14,9 +14,9 @@
             <div class="forgot-pass">
                 <router-link to="/forgot-password">Forgot Password?</router-link>
             </div>
-            <div class="new-account">
+            <!-- <div class="new-account">
                 <router-link to="/register">Create New Account</router-link>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>

@@ -16,6 +16,11 @@
   import apiClient from '@/Config/apiClient.js';
   export default {
     name: "AdminNavbarSection",
+    data() {
+    return {
+      isClosed: false, // Set the default value
+    };
+  },
     methods: {
     async logout() {
       try {

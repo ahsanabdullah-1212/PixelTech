@@ -4,8 +4,8 @@
       <div class="Article-card" v-if="blog">
         <img :src="baseURL + blog.image" alt="Blog Image" class="article-image" />
         <div class="Article-card-content">
-          <p class="Article-card-date">{{ blog.title }}</p>
-          <h3 class="Article-card-title">{{ blog.text }}</h3>
+          <p class="Article-card-date">{{ blog.formatted_date }}</p>
+          <p class="Article-card-title">{{ blog.title }}</p>
         </div>
       </div>
       <!-- <div v-if="blog">

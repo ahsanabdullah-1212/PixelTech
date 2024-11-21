@@ -3,7 +3,7 @@
     <h2>Meta Tags Management</h2>
     <!-- Button to add a new meta tag -->
     <div class="add-button">
-      <button @click="createMetaTags"><i class="fa-solid fa-plus"></i></button>
+      <button @click="createMetaTags">Add New <i class="fa-solid fa-plus"></i></button>
     </div>
 
     <!-- Table to display meta tags -->

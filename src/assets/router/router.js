@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import AdminLayout from '@/layouts/AdminLayout.vue';
 import BasicLayout from '@/layouts/BasicLayout.vue';
 import LoginPage from '@/Views/LoginPage.vue';
-import RegisterPage from '@/Views/RegisterPage.vue';
+// import RegisterPage from '@/Views/RegisterPage.vue';
 import NotFound from '@/Views/NotFound.vue'
 import RecoverPass from '@/Views/RecoverPass.vue';
 import NewPass from '@/Views/NewPass.vue';
@@ -56,11 +56,11 @@ const routes = [
     component: LoginPage
   },
   // Register Page (without layout)
-  {
-    path: '/register',
-    name: 'Register',
-    component: RegisterPage
-  },
+  // {
+  //   path: '/register',
+  //   name: 'Register',
+  //   component: RegisterPage
+  // },
   {
     path: '/forgot-password',
     name: 'RecoverPass',

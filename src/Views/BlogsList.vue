@@ -12,7 +12,7 @@
 
     <div class="blog-b">
       <button class="add-blog-btn" @click="navigateToAddBlog">
-        <i class="fa-solid fa-plus"></i>
+        Add New <i class="fa-solid fa-plus"></i>
       </button>
     </div>
 
@@ -22,7 +22,6 @@
           <th>ID</th>
           <th>Title</th>
           <th>Image</th>
-          <th>Text</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -33,9 +32,8 @@
         </tr>
         <tr v-for="blog in blogs" :key="blog.id">
           <td>{{ blog.id }}</td>
-          <td>{{ blog.title }}</td>
+          <td class="content-cell">{{ blog.title }}</td>
           <td><img :src="baseURL + blog.image" alt="Blog Image" width="50" /></td>
-          <td class="content-cell">{{ blog.text }}</td>
           <td>
             <button @click="navigateToView(blog.id)"><i class="fa-solid fa-eye"></i></button>
             <button @click="navigateToEdit(blog.id)"><i class="fa-solid fa-pen-to-square"></i></button>
@@ -123,7 +121,7 @@ export default {
 
 <style scoped>
 .no-records {
-  text-align: center!important;
+  text-align: center !important;
   font-size: 24px;
   font-weight: bold;
   color: #181717;
