@@ -19,10 +19,7 @@
           <img :src="imagePreview" alt="Preview" class="image-preview-img" v-else />
         </div>
       </div>
-      <div class="form-group">
-        <label for="text">Text</label>
-        <textarea id="text" v-model="text" placeholder="Enter blog text" required class="form-textarea"></textarea>
-      </div>
+
       <div class="form-footer">
         <button type="submit" class="submit-btn">Update Blog</button>
         <button type="button" class="back-btn" @click="goBack">Back to Blog List</button>
@@ -39,7 +36,6 @@ export default {
     return {
       title: '',
       image: '',
-      text: '',
       imagePreview: '', // Holds the image preview URL
       newImage: false, // Holds the image preview URL
     };
@@ -53,7 +49,6 @@ export default {
       apiClient.get(`/api/blogs/${this.$route.params.id}`).then((response) => {
         this.title = response.data.title;
         this.image = response.data.image;
-        this.text = response.data.text;
 
         // Set the imagePreview directly from the response if image exists
         if (this.image) {
@@ -74,7 +69,6 @@ export default {
     updateBlog() {
       const formData = new FormData();
       formData.append('title', this.title);
-      formData.append('text', this.text);
 
       // Only append the image if a new one is selected
       if (this.newImage) {
