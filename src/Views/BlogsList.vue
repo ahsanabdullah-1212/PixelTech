@@ -89,10 +89,18 @@ export default {
       this.$router.push({ name: "EditBlog", params: { id } });
     },
     deleteBlog(id) {
-      apiClient.delete(`/api/blogs/${id}`).then(() => {
-        this.fetchBlogs(1); // Redirect to the first page after deletion
-      });
-    },
+  if (window.confirm('Are you sure you want to delete this blog?')) {
+    apiClient.delete(`/api/blogs/${id}`).then(() => {
+      this.fetchBlogs(1); // Redirect to the first page after deletion
+    }).catch((error) => {
+      console.error('Failed to delete the blog:', error);
+      alert('Failed to delete the blog. Please try again.');
+    });
+  } else {
+    console.log('Blog deletion canceled.');
+  }
+}
+,
     changePage(page) {
       if (page >= 1 && page <= this.totalPages) {
         this.fetchBlogs(page); // Fetch blogs for the selected page
@@ -229,7 +237,7 @@ button:hover {
 .blogs-table th,
 .blogs-table td {
   padding: 10px;
-  text-align: center;
+  text-align: left;
   border: 1px solid #ddd;
 }
 

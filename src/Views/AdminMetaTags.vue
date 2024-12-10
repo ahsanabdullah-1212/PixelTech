@@ -149,6 +149,7 @@ table {
 
 th,
 td {
+  text-align: left;
   border: 1px solid #ddd;
   padding: 8px;
 }

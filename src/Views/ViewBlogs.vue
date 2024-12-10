@@ -7,7 +7,14 @@
           <p class="Article-card-date">{{ blog.formatted_date }}</p>
           <p class="Article-card-title">{{ blog.title }}</p>
         </div>
+
       </div>
+  
+        <button  @click.prevent="navigateBack">
+          Back
+        </button>
+
+      
       <!-- <div v-if="blog">
         <div class="blog-header">
           <img :src="baseURL + blog.image" alt="Blog Image" class="blog-image" />
@@ -21,9 +28,7 @@
           <button @click="goBack" class="back-btn">Back to Blog List</button>
         </div>
       </div> -->
-      <div v-else>
-        <p>Loading...</p>
-      </div>
+ 
     </div>
   </template>
   
@@ -55,11 +60,24 @@
       goBack() {
         this.$router.push({ name: 'BlogList' });
       },
+      navigateBack() {
+            this.$router.push({ name: 'BlogList' });
+        }
     },
   };
   </script>
   
   <style scoped>
+  button {
+    padding: 12px 20px;
+    background-color: #00bcd4;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
   .view-blog-container {
     margin: 30px auto;
     max-width: 800px;

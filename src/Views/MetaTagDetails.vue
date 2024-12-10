@@ -18,6 +18,12 @@
         <label>Description:</label>
         <textarea v-model="metaTag.description" readonly></textarea>
       </div>
+      <div>
+        <button class="btn black-bg" @click.prevent="navigateBack">
+          Back
+        </button>
+      </div>
+
     </form>
   </div>
 </template>
@@ -53,13 +59,16 @@ export default {
             this.$router.push('/error-page'); // Redirect to a generic error page
           }
         });
-    }
+    },
+    navigateBack() {
+            this.$router.push({ name: 'meta-tags'});
+        }
 
     ,
   },
   mounted() {
     const id = this.$route.params.id;
-    console.log("Fetched ID from route:", id); // Debug log
+    // console.log("Fetched ID from route:", id); // Debug log
     if (!id) {
       console.error("No ID provided in the route.");
       this.$router.push('/error-page'); // Redirect if ID is missing

@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { useAuthStore } from '@/authStore/auth';
 
-// export const baseURL = 'http://127.0.0.1:8000'; 
-export const baseURL = 'https://pixeltechapi.stechsole.com'; 
+export const baseURL = 'http://127.0.0.1:8000'; 
+// export const baseURL = 'https://pixeltechapi.stechsole.com'; 
 
 const apiClient = axios.create({
   baseURL, 
@@ -12,10 +13,9 @@ const apiClient = axios.create({
 
 
 apiClient.interceptors.request.use((config) => {
-  // const token = localStorage.getItem('authToken-pixeltech'); 
-  const token = localStorage.getItem('authToken'); 
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`; 
+  const authStore = useAuthStore();
+  if (authStore.authToken) {
+    config.headers.Authorization = `Bearer ${authStore.authToken}`;
   }
   return config;
 });

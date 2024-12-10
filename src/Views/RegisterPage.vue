@@ -26,41 +26,41 @@
 </template>
 
 <script>
-import apiClient from '@/Config/apiClient.js';
+import { useAuthStore } from '@/authStore/auth';
 
 export default {
-  data() {
-    return {
-      name: '',
-      email: '',
-      phone: '',
-      password: '',
-    };
-  },
-  methods: {
-    async registerUser() {
+  setup() {
+    const authStore = useAuthStore();
+    const name = ref('');
+    const email = ref('');
+    const phone = ref('');
+    const password = ref('');
+
+    const registerUser = async () => {
       try {
         const response = await apiClient.post('/api/register', {
-          name: this.name,
-          email: this.email,
-          phone: this.phone,
-          password: this.password,
+          name: name.value,
+          email: email.value,
+          phone: phone.value,
+          password: password.value,
         });
-        
+
         if (response.data.token) {
-          localStorage.setItem('authToken', response.data.token);
+          authStore.saveToken(response.data.token);
           this.$router.push('/login');
-        } else {
-          alert('Registration failed. Please try again.');
         }
       } catch (error) {
-        if (error.response && error.response.data.error) {
-          alert(error.response.data.error);
-        } else {
-          alert('An error occurred during registration.');
-        }
+        alert(error.response?.data?.error || 'Registration failed');
       }
-    },
+    };
+
+    return {
+      name,
+      email,
+      phone,
+      password,
+      registerUser,
+    };
   },
 };
 </script>

@@ -18,18 +18,22 @@
                         <router-link to="/">
                             <li>Home</li>
                         </router-link>
-                        <router-link to="/blogs">
-                            <li>About us</li>
-                        </router-link>
                         <router-link to="/services">
                             <li>Services</li>
-                        </router-link>
-                        <router-link to="/contact">
-                            <li>Contact Us</li>
                         </router-link>
                         <router-link to="/portfolio">
                             <li>Portfolio</li>
                         </router-link>
+                        <router-link to="/blogs">
+                            <li>Blogs</li>
+                        </router-link>
+                        <router-link to="/team">
+                            <li>Team</li>
+                        </router-link>
+                        <router-link to="/contact">
+                            <li>Contact Us</li>
+                        </router-link>
+                        
                     </ul>
                 </div>
                 <div class="footer-col">

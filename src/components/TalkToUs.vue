@@ -13,7 +13,7 @@
                     </div>
 
                     <div class="work-btn">
-                        <router-link to="/blogs">
+                        <router-link to="/contact">
                             <button class="simple-btn-2">Talk to us</button>
                         </router-link>
                     </div>

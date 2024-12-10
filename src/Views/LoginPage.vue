@@ -22,53 +22,34 @@
 </template>
 
 <script>
-import apiClient from '@/Config/apiClient.js';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useAuthStore } from '@/authStore/auth';
 
 export default {
-    data() {
-        return {
-            email: "",
-            password: ""
-        };
-    },
-    methods: {
-        async login() {
-            if (this.email && this.password) {
-                try {
-                    const response = await apiClient.post('/api/login', {
-                        email: this.email,
-                        password: this.password
-                    });
+  setup() {
+    const authStore = useAuthStore();
+    const email = ref('');
+    const password = ref('');
+    const router = useRouter();
 
-                    if (response.data.data.token) {
-                        localStorage.setItem('authToken', response.data.data.token);
+    const login = async () => {
+      try {
+        const redirectPath = await authStore.login(email.value, password.value);
+        router.push(redirectPath);
+      } catch (error) {
+        alert(error);
+      }
+    };
 
-                        if (response.data.data.type === 'admin') {
-                            this.$router.push("/admin/dashboard");
-                        } else {
-                            this.$router.push("/user/dashboard");
-                        }
-                    } else {
-                        alert('Login failed: Invalid credentials.');
-                    }
-                } catch (error) {
-                    if (error.response && error.response.status === 422) {
-                        alert('Validation error: Please check your email and password.');
-                    } else if (error.response && error.response.status === 401) {
-                        alert('Invalid credentials.');
-                    } else if (error.response && error.response.status === 429) {
-                        alert('Too many login attempts. Please try again later.');
-                    } else {
-                        console.error("Error logging in:", error);
-                        alert('Error logging in. Please try again later.');
-                    }
-                }
-            } else {
-                alert('Please enter both email and password');
-            }
-        }
-    }
+    return {
+      email,
+      password,
+      login,
+    };
+  },
 };
+
 </script>
 
 <style scoped>

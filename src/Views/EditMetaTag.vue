@@ -46,7 +46,7 @@ export default {
     methods: {
         fetchMetaTagData(id) {
             apiClient.get(`/api/meta-tags/${id}`).then(response => {
-                console.log("API Response:", response.data);
+                // console.log("API Response:", response.data);
                 const metaTag = response.data; // Assumes data is an array with at least one element
                 if (!metaTag) {
                     console.error("Meta tag not found.");
@@ -88,7 +88,7 @@ export default {
     },
     mounted() {
         const id = this.$route.params.id;
-        console.log("Fetched ID from route:", id); // Debug log
+        // console.log("Fetched ID from route:", id); // Debug log
         if (!id) {
             console.error("No ID provided in the route.");
             this.$router.push('/error-page'); // Redirect if ID is missing
@@ -134,14 +134,14 @@ button {
     padding: 10px;
     border: none;
     border-radius: 8px;
-    background-color: #4CAF50;
+    background-color: #00bcd4;
     color: white;
     cursor: pointer;
     margin-right: 10px;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #00bcd4;
 }
 
 .buttons {

@@ -15,6 +15,48 @@
                                 </div>
                             </div>
 
+                            <!-- <div class="ss-card-image1">
+                                <img :src="chunk[0].image" :alt="chunk[0].title" />
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="service-card-two" v-if="chunk[1]">
+                        <div class="ss-card-info-2">
+                            <!-- <div class="ss-card-image2">
+                                <img :src="chunk[1].image" :alt="chunk[1].title" />
+                            </div> -->
+                            <div class="serial-details">
+                                <div class="serial-number">
+                                    <h2>{{ chunk[1].serial }}</h2>
+                                </div>
+                                <div class="ss-card-detail">
+                                    <h3 class="animated-6">{{ chunk[1].title }}</h3>
+                                    <p>{{ chunk[1].description }}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+               
+            </div>
+        </div>
+        <!-- <div class="service-card-container">
+            <div v-for="(chunk, index) in rows" :key="index">
+                <div class="service-cards-row-1">
+                    <div class="service-card-one" v-if="chunk[0]">
+                        <div class="ss-card-info-1">
+                            <div class="serial-details-2">
+                                <div class="serial-number">
+                                    <h2>{{ chunk[0].serial }}</h2>
+                                </div>
+                                <div class="ss-card-detail">
+                                    <h3 class="animated-6">{{ chunk[0].title }}</h3>
+                                    <p>{{ chunk[0].description }}</p>
+                                </div>
+                            </div>
+
                             <div class="ss-card-image1">
                                 <img :src="chunk[0].image" :alt="chunk[0].title" />
                             </div>
@@ -64,7 +106,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="specail-cards-btns">
             <router-link to="/services">
                 <button class="gradient-btn">See our Plans</button>
@@ -93,8 +135,8 @@ export default {
     computed: {
         rows() {
             const chunked = [];
-            for (let i = 0; i < this.cards.length; i += 3) {
-                chunked.push(this.cards.slice(i, i + 3));
+            for (let i = 0; i < this.cards.length; i += 2) {
+                chunked.push(this.cards.slice(i, i + 2));
             }
             return chunked;
         },

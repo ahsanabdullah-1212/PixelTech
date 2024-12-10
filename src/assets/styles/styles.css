@@ -41,14 +41,25 @@ a {
 /*               navbar             */
 .navbar {
     display: flex;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the navbar */
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    width: 100%;
+    padding: 30px 20px;
+    width: calc(100% - 40px); /* Leaves 20px space on both sides */
     position: fixed;
+    left: 20px; /* Adds space on the left */
+    right: 20px; /* Adds space on the right */
     background: transparent;
     transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
     z-index: 2000;
+}
+@media(max-width:837px){
+    .navbar{
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
 }
 
 .navbar-scrolled {
@@ -368,7 +379,7 @@ a {
 } */
 
 .hero-icon {
-    margin-top: 40px;
+    margin-top: 93px;
 }
 
 .hero-paragraph {
@@ -485,7 +496,12 @@ a {
     padding-bottom: 27px;
     padding-top: 25px;
 }
-
+@media(max-width:770px){
+    .footer-container {
+        padding-left: 25px;
+        padding-right: 25px;
+}
+}
 @media(max-width:665px) {
     .footer-container {
         background-image: none;
@@ -573,7 +589,11 @@ a {
     margin: 5px;
     margin-bottom: 20px;
 }
-
+@media(max-width:710px){
+    .footer-col h2 {
+        margin-top: 20px;
+    }
+}
 .footer-logo img {
     width: 166px;
     margin: 5px;
@@ -624,16 +644,41 @@ a {
 .semi-card-1 {
     text-align: left;
     width: 300px;
-    background-image: url('@/assets/images/card-1.png');
-    /* background-position: center; */
-    background-repeat: no-repeat;
-    background-size: cover;
     height: 356px;
     color: var(--white-color);
     margin: 10px;
     border-radius: 20px;
     padding: 20px;
+    overflow: hidden; /* Ensures the background stays within the card */
+    position: relative; /* Required for the pseudo-element */
+    background: transparent; /* Ensures no background color interferes */
 }
+
+.semi-card-1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('@/assets/images/card-1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+    transition: transform 0.4s ease-in-out;
+    border-radius: inherit;
+    z-index: 0; 
+}
+
+.semi-card-1:hover::before {
+    transform: scale(1.1); 
+}
+
+.semi-card-1 > * {
+    position: relative; 
+    z-index: 1; 
+}
+
 
 @media(max-width:1030px) {
     .semi-card-1 {
@@ -655,16 +700,40 @@ a {
 
 .semi-card-2 {
     width: 300px;
+    height: 356px;
     margin: 10px;
     border-radius: 20px;
     padding: 20px;
     color: var(--white-color);
     text-align: left;
-    background-image: url('@/assets/images/card-2.png');
-    background-position: center;
+    overflow: hidden;
+    position: relative;
+    background: transparent; 
+}
+
+.semi-card-2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('@/assets/images/card-2.png'); 
     background-repeat: no-repeat;
     background-size: cover;
-    height: 356px;
+    background-position: center;
+    transition: transform 0.4s ease-in-out;
+    border-radius: inherit; 
+    z-index: 0; 
+}
+
+.semi-card-2:hover::before {
+    transform: scale(1.1); 
+}
+
+.semi-card-2 > * {
+    position: relative; 
+    z-index: 1; 
 }
 
 @media(max-width:1030px) {
@@ -687,17 +756,42 @@ a {
 
 .Special-card-1 {
     width: 500px;
+    height: 356px;
     margin: 10px;
-    color: var(--white-color);
     border-radius: 20px;
     padding: 20px;
+    color: var(--white-color);
     text-align: left;
-    background-image: url('@/assets/images/card-3.png');
-    background-position: center;
+    overflow: hidden; /* Ensures the background stays within the card */
+    position: relative; /* Required for the pseudo-element */
+    background: transparent; /* Ensures no default background interferes */
+}
+
+.Special-card-1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('@/assets/images/card-3.png'); 
     background-repeat: no-repeat;
     background-size: cover;
-    height: 356px;
+    background-position: center;
+    transition: transform 0.4s ease-in-out; 
+    border-radius: inherit;
+    z-index: 0; 
 }
+
+.Special-card-1:hover::before {
+    transform: scale(1.1); 
+}
+
+.Special-card-1 > * {
+    position: relative;
+    z-index: 1; 
+}
+
 
 @media(max-width:1030px) {
     .Special-card-1 {
@@ -753,20 +847,44 @@ a {
         flex-wrap: wrap;
     }
 }
-
 .special-card-2 {
     width: 366.666666667px;
+    height: 234px;
     margin: 10px;
     border-radius: 20px;
     padding: 20px;
     color: var(--white-color);
     text-align: left;
-    background-image: url('@/assets/images/card-4.png');
-    background-position: center;
+    overflow: hidden; /* Ensures the background stays within the card */
+    position: relative; /* Required for the pseudo-element */
+    background: transparent; /* Ensures no default background interferes */
+}
+
+.special-card-2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('@/assets/images/card-4.png'); /* Specific background */
     background-repeat: no-repeat;
     background-size: cover;
-    height: 234px
+    background-position: center;
+    transition: transform 0.4s ease-in-out; /* Smooth zoom effect */
+    border-radius: inherit; /* Matches card's border radius */
+    z-index: 0; /* Stays within the card and doesn't interfere */
 }
+
+.special-card-2:hover::before {
+    transform: scale(1.1); /* Zoom-in effect for the background */
+}
+
+.special-card-2 > * {
+    position: relative; /* Ensures content stays above the pseudo-element */
+    z-index: 1; /* Keeps card content visible above the pseudo-element */
+}
+
 
 @media(max-width:1030px) {
     .special-card-2 {
@@ -779,19 +897,42 @@ a {
         width: 300px;
     }
 }
-
 .special-card-3 {
     width: 366.666666667px;
+    height: 234px;
     margin: 10px;
     border-radius: 20px;
     padding: 20px;
     color: var(--white-color);
     text-align: left;
+    overflow: hidden; 
+    position: relative; 
+    background: transparent; 
+}
+
+.special-card-3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url('@/assets/images/card-5.png');
-    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 234px
+    background-position: center;
+    transition: transform 0.4s ease-in-out; 
+    border-radius: inherit;
+    z-index: 0; 
+}
+
+.special-card-3:hover::before {
+    transform: scale(1.1); 
+}
+
+.special-card-3 > * {
+    position: relative; 
+    z-index: 1; 
 }
 
 @media(max-width:1030px) {
@@ -808,16 +949,40 @@ a {
 
 .special-card-4 {
     width: 366.666666667px;
+    height: 234px;
     margin: 10px;
     border-radius: 20px;
     padding: 20px;
     color: var(--white-color);
     text-align: left;
+    overflow: hidden; 
+    position: relative; 
+    background: transparent; 
+}
+
+.special-card-4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url('@/assets/images/card-6.png');
-    /* background-position: center; */
     background-repeat: no-repeat;
     background-size: cover;
-    height: 234px
+    /* background-position: center; */
+    transition: transform 0.4s ease-in-out; 
+    border-radius: inherit;
+    z-index: 0; 
+}
+
+.special-card-4:hover::before {
+    transform: scale(1.1); 
+}
+
+.special-card-4 > * {
+    position: relative; 
+    z-index: 1; 
 }
 
 @media(max-width:1030px) {
@@ -900,6 +1065,14 @@ a {
 }
 
 /*     Pixel Tech     */
+.pixel-info {
+    padding-left: 52px;
+}
+@media(max-width:770px){
+    .pixel-info {
+        padding-left: 0px;
+    }
+}
 .pixel-row {
     display: flex;
     flex-direction: row;
@@ -1036,7 +1209,11 @@ a {
     flex-direction: row;
     justify-content: flex-start;
 }
-
+@media(max-width:550px) {
+.pixel-btn{
+    justify-content: center;
+}
+}
 /*     Work Section      */
 .work-container {
     /* margin-top: -100px; */
@@ -1287,7 +1464,13 @@ a {
     flex-direction: row;
     justify-content: space-around;
 }
-
+@media(max-width:500px) {
+    .logos {
+        width: auto;
+        height: auto;
+        flex-direction: column;
+    }
+}
 .logos img {
     margin: 10px;
     /* width: 87px; */
@@ -1718,7 +1901,7 @@ a {
 /*    Service Cards    */
 
 .serial-details {
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 .serial-details-2 {
     margin-bottom: 10px;

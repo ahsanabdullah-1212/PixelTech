@@ -166,19 +166,19 @@ label {
 }
 
 .submit-btn {
-  background-color: #5cb85c;
+  background-color: #00bcd4;
 }
 
 .submit-btn:hover {
-  background-color: #4cae4c;
+  background-color: #00bcd4;
 }
 
 .back-btn {
-  background-color: #f0ad4e;
+  background-color: #00bcd4;
 }
 
 .back-btn:hover {
-  background-color: #ec971f;
+  background-color: #00bcd4;
 }
 
 .form-footer {
