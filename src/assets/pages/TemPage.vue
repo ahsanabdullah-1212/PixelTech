@@ -28,7 +28,7 @@ export default {
     FooterContainer,
     },
     setup() {
-        useMetaTags('Our Team'); // Replace 'landing-page' with the actual page_name in your database
+        useMetaTags('Our Team'); 
     },
 }
 </script>

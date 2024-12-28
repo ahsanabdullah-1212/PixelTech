@@ -64,33 +64,21 @@ export default {
     },
     methods: {
         init() {
-            const container = this.$refs.modelViewer; // Reference the container from Vue template
-
-            // Set up the scene, camera, and renderer
+            const container = this.$refs.modelViewer;
             this.scene = new THREE.Scene();
             this.camera = new THREE.PerspectiveCamera(100, container.clientWidth / 400, 0.1, 1000);
             this.camera.position.set(0, 4, 3.85);
 
             this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            this.renderer.setSize(container.clientWidth, 400); // Reduced size for the frame
-            this.renderer.shadowMap.enabled = true; // Enable shadow maps
+            this.renderer.setSize(container.clientWidth, 400); 
+            this.renderer.shadowMap.enabled = true;
             this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
             this.$refs.modelViewer.appendChild(this.renderer.domElement);
-
-            // Set up lighting
             this.setupLights();
-
-            // Load the 3D model
             this.loadModel();
-
-            // Handle mouse movement
             document.addEventListener('mousemove', this.onMouseMove, false);
-
-            // Start the animation loop
             this.animate();
-
-            // Handle window resize
             window.addEventListener('resize', this.onWindowResize);
         },
 
@@ -133,27 +121,22 @@ export default {
                 this.eyelBone = this.character.getObjectByName('eyeL');
 
                 this.scene.add(this.character);
-
-                // Set up animation mixer
                 this.mixer = new THREE.AnimationMixer(this.character);
                 const action = this.mixer.clipAction(gltf.animations[0]);
                 action.timeScale = 0.4;
                 action.play();
-
-                // Hide loader after model is fully loaded
                 this.modelLoader = false;
             }, undefined, (error) => {
                 console.error('An error occurred while loading the model:', error);
-                // Optionally, hide loader if model fails to load
                 this.modelLoader = false;
             });
         },
 
         onMouseMove(event) {
-            const container = this.$refs.modelViewer; // Reference the container again here
+            const container = this.$refs.modelViewer;
 
-            const mouseX = (event.clientX / container.clientWidth) * 2 - 1; // Adjust for custom width
-            const mouseY = -(event.clientY / 400) * 2 + 0.55; // Adjust for custom height
+            const mouseX = (event.clientX / container.clientWidth) * 2 - 1;
+            const mouseY = -(event.clientY / 400) * 2 + 0.55;
 
             if (this.headBone) {
                 this.headBone.rotation.y = mouseX * 0.5;
@@ -184,11 +167,11 @@ export default {
         },
 
         onWindowResize() {
-            const container = this.$refs.modelViewer; // Reference the container again here
+            const container = this.$refs.modelViewer; 
 
             this.camera.aspect = container.clientWidth / 400;
             this.camera.updateProjectionMatrix();
-            this.renderer.setSize(container.clientWidth, 400); // Maintain the custom size
+            this.renderer.setSize(container.clientWidth, 400);
         },
 
         cleanup() {

@@ -55,8 +55,7 @@ export default {
       });
 
       if (response.status === 200) {
-        alert(response.data.message);
-        // Clear fields after success
+        alert(response.data.message);  
         this.currentPassword = '';
         this.newPassword = '';
         this.confirmPassword = '';

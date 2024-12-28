@@ -30,7 +30,7 @@ export default {
         FooterContainer,
     },
     setup() {
-        useMetaTags('Contact'); // Replace 'landing-page' with the actual page_name in your database
+        useMetaTags('Contact');
     },
 }
 </script>

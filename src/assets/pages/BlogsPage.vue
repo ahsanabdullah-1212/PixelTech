@@ -26,7 +26,7 @@ export default {
         FooterContainer,
     },
     setup() {
-        useMetaTags('Blogs'); // Replace 'landing-page' with the actual page_name in your database
+        useMetaTags('Blogs'); 
     },
 
 }

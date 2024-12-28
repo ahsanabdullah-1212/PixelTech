@@ -1,9 +1,7 @@
 <template>
   <div class="meta-tags-management">
     <h2>Active Meta Tags</h2>
-
-
-    <!-- Table to display meta tags -->
+ 
     <div class="table-container">
       <table v-if="metaTags.length" class="meta-table">
         <thead>
@@ -12,8 +10,7 @@
             <th>Page Name</th>
             <th>Title</th>
             <th>Description</th>
-            <th>Status</th>
-            <!-- <th>Actions</th> -->
+            <th>Status</th> 
           </tr>
         </thead>
         <tbody>
@@ -31,22 +28,13 @@
                 {{ metaTag.is_active ? "Active" : "Inactive" }}
               </button>
             </td>
-            <!-- <td class="actions">
-              <router-link :to="{ name: 'MetaTagDetails', params: { id: metaTag.id } }">
-                <button><i class="fa-solid fa-eye"></i></button>
-              </router-link>
-              <router-link :to="{ name: 'EditMetaTag', params: { id: metaTag.id } }">
-                <button><i class="fa-solid fa-pen-to-square"></i></button>
-              </router-link>
-              <button @click="deleteMetaTag(metaTag.id)"><i class="fa-solid fa-trash"></i></button>
-            </td> -->
+          
           </tr>
         </tbody>
       </table>
       <p v-else class="no-records">No Records Found</p>
     </div>
-
-    <!-- Pagination Controls -->
+  
     <div v-if="totalPages > 1" class="pagination">
       <button
         @click="changePage(currentPage - 1)"
@@ -78,8 +66,7 @@ export default {
       totalPages: 1,
     };
   },
-  methods: {
-    // Fetch paginated meta tags
+  methods: {   
     fetchMetaTags(page = 1) {
       apiClient
         .get(`/api/meta-tags?page=${page}&per_page=4`)
@@ -92,32 +79,19 @@ export default {
           console.error("Error fetching meta tags:", error);
         });
     },
-    // Toggle active/inactive status of a meta tag
+    
     toggleMetaTagStatus(id) {
       apiClient
         .post(`/api/meta-tags/${id}/toggle-active`)
         .then((response) => {
           alert(response.data.message);
-          this.fetchMetaTags(this.currentPage); // Refresh listing on current page
+          this.fetchMetaTags(this.currentPage);   
         })
         .catch((error) => {
           console.error("Error toggling status:", error);
         });
     },
-    // Delete a meta tag
-    // deleteMetaTag(id) {
-    //   if (confirm("Are you sure you want to delete this meta tag?")) {
-    //     apiClient
-    //       .delete(`/api/meta-tags/${id}`)
-    //       .then(() => {
-    //         this.fetchMetaTags(this.currentPage);
-    //       })
-    //       .catch((error) => {
-    //         console.error("Error deleting meta tag:", error);
-    //       });
-    //   }
-    // },
-    // Handle page changes
+ 
     changePage(page) {
       if (page >= 1 && page <= this.totalPages) {
         this.fetchMetaTags(page);
@@ -125,7 +99,7 @@ export default {
     },
   },
   mounted() {
-    this.fetchMetaTags(); // Fetch meta tags on mount
+    this.fetchMetaTags(); 
   },
 };
 </script>

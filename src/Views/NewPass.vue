@@ -45,18 +45,18 @@
   export default {
   data() {
     return {
-      email: '', // Add this field
+      email: '',  
       password: '',
       passwordConfirmation: '',
     };
   },
   methods: {
     async resetPassword() {
-    const token = this.$route.params.token; // Retrieve token from URL
+    const token = this.$route.params.token;  
     try {
         const response = await apiClient.post(`/api/update-password`, {
-            email: this.email, // Ensure this is the correct email
-            token: token, // Ensure this token is being correctly retrieved from URL
+            email: this.email,  
+            token: token,  
             password: this.password,
             password_confirmation: this.passwordConfirmation,
         });

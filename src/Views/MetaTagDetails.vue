@@ -53,16 +53,16 @@ export default {
         .catch(error => {
           if (error.response && error.response.status === 404) {
             console.error("Meta tag not found.");
-            this.$router.push('/not-found'); // Redirect to 'not found' page
+            this.$router.push('/not-found');  
           } else {
             console.error("Error fetching meta tag details:", error);
-            this.$router.push('/error-page'); // Redirect to a generic error page
+            this.$router.push('/error-page');  
           }
         });
     },
     navigateBack() {
-            this.$router.push({ name: 'meta-tags'});
-        }
+      this.$router.push({ name: 'meta-tags' });
+    }
 
     ,
   },

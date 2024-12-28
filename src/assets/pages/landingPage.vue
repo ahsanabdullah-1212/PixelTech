@@ -6,15 +6,13 @@
         <SpecialCards />
         <WorkSection />
         <NewsArticles />
-        <!-- <BrandingContainer /> -->
         <ReviewSection />
         <TalkToUs />
         <FooterContainer />
     </div>
 </template>
 
-<script>
-// import { useMetaTags } from '@/Hooks/useMetaTags';  
+<script> 
 import NavbarComponent from '@/components/NavbarComponent.vue'
 import TalkToUs from '@/components/TalkToUs.vue'
 import ReviewSection from '@/components/ReviewSection.vue'
@@ -35,13 +33,12 @@ export default {
         PixelTech,
         NewsArticles,
         HeroSection,
-        // BrandingContainer,
         FooterContainer,
         WorkSection,
         SpecialCards,
     },
     setup() {
-        useMetaTags('Landing Page'); // Replace 'landing-page' with the actual page_name in your database
+        useMetaTags('Landing Page'); 
     },
    
 }

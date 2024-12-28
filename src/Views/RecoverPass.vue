@@ -32,8 +32,7 @@
         const response = await apiClient.post('/api/forgot-password', {
             email: this.email,
         });
-
-        // Check if the response status is 200 and handle the message
+ 
         if (response.status === 200 && response.data.message) {
             alert(response.data.message);
             this.$router.push('/login');

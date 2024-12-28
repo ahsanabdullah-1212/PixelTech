@@ -84,7 +84,6 @@
              'This animation captures the essence of raw strength and advanced technology,bringing an arsenal of high-tech weapons to life with stunning realism.',
            image: require('@/assets/images/sp-6.png'),
          },
-         // Add more cards here as needed
        ],
      };
    },

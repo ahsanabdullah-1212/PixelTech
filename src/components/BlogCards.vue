@@ -1,7 +1,6 @@
 <template>
   <div class="main-article">
     <div class="Article-card-container">
-      <!-- Display the cards -->
       <div class="Article-card" v-for="(card, index) in displayedCards" :key="index">
         <img :src="card.imageUrl" alt="Card Image" class="article-image" />
         <div class="Article-card-content">
@@ -10,8 +9,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Load More Button -->
     <div v-if="hasMore" class="load-more">
       <button @click="loadMoreBlogs">Load More</button>
     </div>
@@ -41,7 +38,7 @@ export default {
       apiClient
         .get(`/api/blogs?page=${this.currentPage}`)
         .then((response) => {
-          const blogs = response.data.data || []; // Adjust for API response structure
+          const blogs = response.data.data || [];
           if (blogs.length) {
             const newCards = blogs.map((blog) => ({
               imageUrl: blog.image ? `${this.baseURL}/storage/uploads/${blog.image}` : "",
@@ -51,17 +48,15 @@ export default {
 
             this.cards.push(...newCards);
 
-            // Update displayed cards
             const startIndex = (this.currentPage - 1) * this.itemsPerPage;
             const endIndex = startIndex + this.itemsPerPage;
             this.displayedCards = this.cards.slice(0, endIndex);
 
-            // Check if there are more blogs
             this.hasMore = !!response.data.next_page_url;
 
-            this.currentPage++; // Increment the page number for the next fetch
+            this.currentPage++;
           } else {
-            this.hasMore = false; // No more blogs to fetch
+            this.hasMore = false;
           }
         })
         .catch((error) => {
@@ -73,11 +68,9 @@ export default {
       const endIndex = startIndex + this.itemsPerPage;
 
       if (startIndex < this.cards.length) {
-        // Display more cards from the already fetched list
         this.displayedCards = this.cards.slice(0, endIndex);
       }
 
-      // If there are fewer cards fetched than displayed, fetch more
       if (this.displayedCards.length < this.cards.length || this.hasMore) {
         this.fetchBlogs();
       }
@@ -87,7 +80,6 @@ export default {
 </script>
 
 <style scoped>
-/* Add styles for the button and layout */
 .load-more {
   margin: 20px 0;
   text-align: center;

@@ -36,8 +36,8 @@ export default {
     return {
       title: '',
       image: '',
-      imagePreview: '', // Holds the image preview URL
-      newImage: false, // Holds the image preview URL
+      imagePreview: '',  
+      newImage: false,  
     };
   },
   created() {
@@ -50,7 +50,7 @@ export default {
         this.title = response.data.title;
         this.image = response.data.image;
 
-        // Set the imagePreview directly from the response if image exists
+        
         if (this.image) {
           this.imagePreview = this.image;
         }
@@ -60,19 +60,18 @@ export default {
       this.newImage = true;
       const file = event.target.files[0];
       if (file) {
-        // Create a local preview URL for the image
+         
         this.imagePreview = URL.createObjectURL(file);
-        // Update the image model with the file (this will be sent to the backend)
+         
         this.image = file;
       }
     },
     updateBlog() {
       const formData = new FormData();
       formData.append('title', this.title);
-
-      // Only append the image if a new one is selected
+ 
       if (this.newImage) {
-        formData.append('image', this.image); // Append the image file
+        formData.append('image', this.image);  
       }
 
       apiClient
@@ -83,7 +82,7 @@ export default {
         })
         .then(() => {
           this.$router.push({ name: 'BlogList' });
-          // Optionally fetch the updated blog data
+          
           this.fetchBlog();
         })
         .catch(error => {

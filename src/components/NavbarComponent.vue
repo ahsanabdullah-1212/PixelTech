@@ -9,9 +9,9 @@
             <router-link to="/" exact-active-class="nav-active" active-class="nav-active">
                 <li>Home</li>
             </router-link>
-            <router-link to="/services" exact-active-class="nav-active" active-class="nav-active">
+            <!-- <router-link to="/services" exact-active-class="nav-active" active-class="nav-active">
                 <li>Services</li>
-            </router-link>
+            </router-link> -->
             <router-link to="/portfolio" exact-active-class="nav-active" active-class="nav-active">
                 <li>Portfolio</li>
             </router-link>
@@ -48,10 +48,10 @@
                     <router-link to="/" exact-active-class="nav-active" active-class="nav-active" @click="closeNav">
                         <li>Home</li>
                     </router-link>
-                    <router-link to="/services" exact-active-class="nav-active" active-class="nav-active"
+                    <!-- <router-link to="/services" exact-active-class="nav-active" active-class="nav-active"
                         @click="closeNav">
                         <li>Services</li>
-                    </router-link>
+                    </router-link> -->
                     <router-link to="/portfolio" exact-active-class="nav-active" active-class="nav-active"
                         @click="closeNav">
                         <li>Portfolio</li>
@@ -79,21 +79,19 @@
 export default {
     data() {
         return {
-            isNavOpen: false,  // State to track whether the navbar is open
-            isScrolled: false  // State to track whether the user has scrolled down
+            isNavOpen: false, 
+            isScrolled: false 
         };
     },
     methods: {
         closeNav() {
-            this.isNavOpen = false; // Sidebar ko band karne ke liye
+            this.isNavOpen = false; 
         },
-        // Toggle the navbar open/closed
         toggleNav() {
             this.isNavOpen = !this.isNavOpen;
         },
-        // Check if the user has scrolled down
         handleScroll() {
-            if (window.scrollY > 50) {  // Change 50 to whatever scroll threshold you want
+            if (window.scrollY > 50) {  
                 this.isScrolled = true;
             } else {
                 this.isScrolled = false;
@@ -101,11 +99,9 @@ export default {
         }
     },
     mounted() {
-        // Listen to the scroll event
         window.addEventListener('scroll', this.handleScroll);
     },
     beforeUnmount() {
-        // Clean up the event listener
         window.removeEventListener('scroll', this.handleScroll);
     }
 };

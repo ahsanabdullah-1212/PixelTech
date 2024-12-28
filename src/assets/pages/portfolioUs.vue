@@ -29,7 +29,7 @@ export default {
         FooterContainer,
     },
     setup() {
-        useMetaTags('Portfolio'); // Replace 'landing-page' with the actual page_name in your database
+        useMetaTags('Portfolio'); 
     },
 }
 </script>

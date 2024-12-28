@@ -9,9 +9,7 @@ export function useMetaTags(pageName) {
         try {
             const response = await apiClient.post('/api/meta-tags/page', {
                 page_name: pageName,
-            });
-
-            // console.log("Meta tags response:", response.data);
+            }); 
             if (Array.isArray(response.data)) {
                 metaData.value = response.data;
                 useHead({

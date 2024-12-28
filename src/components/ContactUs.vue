@@ -5,7 +5,6 @@
                 <div class="contact-form">
                     <h2>Send a Message</h2>
                     <form @submit.prevent="submitForm">
-                        <!-- Full Name and Company in one row -->
                         <div class="contact-row">
                             <div class="contact-form-group">
                                 <label for="fullName">Full Name</label>
@@ -18,7 +17,6 @@
                             </div>
                         </div>
 
-                        <!-- Email and Phone Number in one row -->
                         <div class="contact-row">
                             <div class="contact-form-group">
                                 <label for="email">Email</label>
@@ -31,7 +29,6 @@
                             </div>
                         </div>
 
-                        <!-- Help Options -->
                         <div class="contact-form-group">
                             <label>What do you need help with?</label>
                             <div class="contact-help-options">
@@ -48,7 +45,6 @@
                             </div>
                         </div>
 
-                        <!-- Budget Dropdown -->
                         <div class="contact-form-group">
                             <label for="budget">What is your estimated budget?</label>
                             <div class="dropdown-container" ref="dropdownContainer">
@@ -62,18 +58,11 @@
                             </div>
                         </div>
 
-                        <!-- Project Details -->
                         <div class="contact-form-group">
                             <label for="details">Enter your project details:</label>
                             <textarea id="details" v-model="formData.details" placeholder="Tell us more about your project..."></textarea>
                         </div>
 
-                        <!-- Google reCAPTCHA
-                        <div class="contact-form-group">
-                            <div class="g-recaptcha" data-sitekey="6Le3CXcqAAAAAEMGE_kPydU8KSbvg8XDCdC26AF1"></div>
-                        </div> -->
-
-                        <!-- Submit Button -->
                         <div class="contact-btn">
                             <button class="gradient-btn">Send Enquiry</button>
                         </div>
@@ -107,7 +96,7 @@ export default {
                 phone: "",
                 helpOptionsSelected: [],
                 details: "",
-                budget: "", // Collect selected budget here
+                budget: "",
             },
             helpOptions: [
                 "3D Character",
@@ -125,7 +114,7 @@ export default {
             this.dropdownVisible = !this.dropdownVisible;
         },
         selectOption(option) {
-            this.formData.budget = option; // Save budget in formData
+            this.formData.budget = option;
             this.dropdownVisible = false;
         },
         toggleHelpOption(option) {
@@ -174,7 +163,7 @@ export default {
 </script>
 
 <style scoped>
-/* Dropdown Styles */
+
 .dropdown-container {
     display: flex;
     align-items: center;

@@ -31,8 +31,7 @@
             <i class="fas fa-chart-line analytics-icon"></i>
           </div>
         </section>
-  
-        <!-- Graph Section -->
+   
         <section class="analytics-graph">
           <canvas ref="analyticsGraph"></canvas>
         </section>
@@ -41,12 +40,12 @@
   </template>
   
   <script>
-  import { Chart } from 'chart.js/auto'; // Importing Chart.js
+  import { Chart } from 'chart.js/auto';  
   
   export default {
     name: "ProfileView",
     mounted() {
-      // Accessing the canvas element using ref
+       
       const ctx = this.$refs.analyticsGraph.getContext('2d');
       new Chart(ctx, {
         type: 'line',

@@ -1,8 +1,7 @@
 <template>
   <div class="blogs-container">
     <h1>Blogs</h1>
-
-    <!-- Search Bar -->
+ 
     <div class="search-container">
       <input type="text" v-model="searchQuery" placeholder="Search blogs..." class="search-input" />
       <button class="search-btn" @click="searchBlogs">
@@ -25,8 +24,7 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
-        <!-- Check if blogs are empty -->
+      <tbody> 
         <tr v-if="blogs.length === 0">
           <td colspan="5" class="no-records">No Records Found</td>
         </tr>
@@ -42,8 +40,7 @@
         </tr>
       </tbody>
     </table>
-
-    <!-- Pagination Controls -->
+ 
     <div v-if="totalPages > 1" class="pagination">
       <button v-if="currentPage > 1" @click="changePage(currentPage - 1)" :disabled="currentPage === 1">
         Previous
@@ -64,19 +61,19 @@ import { baseURL } from "@/Config/apiClient.js";
 export default {
   data() {
     return {
-      blogs: [], // Holds the list of blogs for the current page
+      blogs: [],  
       baseURL,
       currentPage: 1,
       totalPages: 1,
-      searchQuery: "", // Holds the search query
+      searchQuery: "",  
     };
   },
   methods: {
     fetchBlogs(page = 1) {
       apiClient.get(`/api/blogs?page=${page}`).then((response) => {
-        this.blogs = response.data.data; // Blogs for the current page
-        this.currentPage = response.data.current_page; // Current page number
-        this.totalPages = response.data.last_page; // Total number of pages
+        this.blogs = response.data.data;  
+        this.currentPage = response.data.current_page; 
+        this.totalPages = response.data.last_page;  
       });
     },
     navigateToAddBlog() {
@@ -91,7 +88,7 @@ export default {
     deleteBlog(id) {
   if (window.confirm('Are you sure you want to delete this blog?')) {
     apiClient.delete(`/api/blogs/${id}`).then(() => {
-      this.fetchBlogs(1); // Redirect to the first page after deletion
+      this.fetchBlogs(1); 
     }).catch((error) => {
       console.error('Failed to delete the blog:', error);
       alert('Failed to delete the blog. Please try again.');
@@ -103,7 +100,7 @@ export default {
 ,
     changePage(page) {
       if (page >= 1 && page <= this.totalPages) {
-        this.fetchBlogs(page); // Fetch blogs for the selected page
+        this.fetchBlogs(page); 
       }
     },
     searchBlogs() {
@@ -111,12 +108,12 @@ export default {
         apiClient
           .get(`/api/blogs/search`, { params: { query: this.searchQuery } })
           .then((response) => {
-            this.blogs = response.data; // Display search results
-            this.currentPage = 1; // Reset pagination
-            this.totalPages = 1; // Disable pagination for search results
+            this.blogs = response.data; 
+            this.currentPage = 1;  
+            this.totalPages = 1;  
           });
       } else {
-        this.fetchBlogs(); // If the search query is empty, fetch all blogs
+        this.fetchBlogs();     
       }
     },
   },

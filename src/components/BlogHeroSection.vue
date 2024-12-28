@@ -5,7 +5,6 @@
                 <h1 class="hero-text">News & <span class="animated">Articles.</span></h1>
             </div>
             <div class="hero-stars">
-                <!-- Dots randomly positioned -->
                 <div class="star" style="top: 10%; left: 20%;"></div>
                 <div class="star" style="top: 30%; left: 80%;"></div>
                 <div class="star" style="top: 50%; left: 50%;"></div>

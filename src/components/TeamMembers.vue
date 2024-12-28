@@ -1,9 +1,6 @@
 <template>
     <div class="main-team-section">
         <div class="team-details">
-            <div class="team-texting">
-                <h1 class="team-text">Our Professionals</h1>
-            </div>
 
         </div>
         <div class="team-row">
@@ -139,7 +136,8 @@
     justify-content: center;
     margin: 0 auto;
     max-width: 1200px;
-    padding: 50px 0;
+    padding: 0 0;
+    margin-bottom: 110px;
 }
 
 .team-card-1 {
@@ -148,6 +146,12 @@
     border-radius: 12px;
     padding: 30px;
     background-color: #2b2b2b;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card-1:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .team-mem-image {

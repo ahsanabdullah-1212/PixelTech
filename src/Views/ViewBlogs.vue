@@ -13,21 +13,7 @@
         <button  @click.prevent="navigateBack">
           Back
         </button>
-
-      
-      <!-- <div v-if="blog">
-        <div class="blog-header">
-          <img :src="baseURL + blog.image" alt="Blog Image" class="blog-image" />
-          <h2 class="blog-title">{{ blog.title }}</h2>
-        </div>
-        <div class="blog-content">
-          <p><strong>Text:</strong></p>
-          <p class="content-text">{{ blog.text }}</p>
-        </div>
-        <div class="blog-footer">
-          <button @click="goBack" class="back-btn">Back to Blog List</button>
-        </div>
-      </div> -->
+ 
  
     </div>
   </template>
@@ -41,22 +27,20 @@
       return {
         blog: null, 
         image: '',
-        imagePreview: '',// Holds the fetched blog data
+        imagePreview: '', 
       };
     },
     created() {
       this.fetchBlog();
       this.baseURL = baseURL+'/storage/uploads/';
     },
-    methods: {
-      // Fetch the blog data using the blog ID from the URL parameters
+    methods: { 
       fetchBlog() {
         apiClient.get(`/api/blogs/${this.$route.params.id}`).then((response) => {
           this.blog = response.data;
           this.image = response.data.image;
         });
-      },
-      // Navigate back to the blog list
+      }, 
       goBack() {
         this.$router.push({ name: 'BlogList' });
       },

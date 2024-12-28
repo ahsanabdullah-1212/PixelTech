@@ -38,7 +38,7 @@ export const useAuthStore = defineStore('auth', {
           headers: { Authorization: `Bearer ${this.authToken}` },
         });
         this.clearToken();
-        return '/login'; // Redirect path
+        return '/login'; 
       } catch (error) {
         throw error.response?.data?.message || 'Logout failed';
       }

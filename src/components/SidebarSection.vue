@@ -8,16 +8,6 @@
           <i class="fas fa-home"></i>
           <span v-if="!isClosed">Dashboard</span>
         </router-link></li>
-
-      <!-- <li><router-link class="dashboard-nav-item" to="/admin/settings">
-          <i class="fas fa-users"></i>
-          <span v-if="!isClosed">Users</span>
-        </router-link></li> -->
-
-      <!-- <li><router-link class="dashboard-nav-item" to="/admin/profile">
-          <i class="fas fa-chart-line"></i>
-          <span v-if="!isClosed">Analytics</span>
-        </router-link></li> -->
       <li><router-link class="dashboard-nav-item" to="/admin/meta-tags">
         <i class="fa-brands fa-meta"></i>
           <span v-if="!isClosed">Meta Tags</span>
@@ -41,12 +31,12 @@ export default {
   name: "SidebarSection",
   data() {
     return {
-      isClosed: false, // sidebar initially open
+      isClosed: false, 
     };
   },
   methods: {
     toggleSidebar() {
-      this.isClosed = !this.isClosed; // toggle the sidebar state
+      this.isClosed = !this.isClosed; 
     },
   },
 };

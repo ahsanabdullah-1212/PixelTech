@@ -11,7 +11,7 @@ import EditMetaTag from '@/Views/EditMetaTag.vue';
 
 // Authentication check function
 const isAuthenticated = () => {
-  return !!localStorage.getItem('authToken'); // Replace with real logic
+  return !!localStorage.getItem('authToken');
 };
 
 const routes = [
@@ -49,13 +49,11 @@ const routes = [
     ]
   },
 
-  // Login Page (without layout)
   {
     path: '/login',
     name: 'Login',
     component: LoginPage
   },
-  // Register Page (without layout)
   // {
   //   path: '/register',
   //   name: 'Register',
@@ -70,10 +68,9 @@ const routes = [
     path: '/newpass/:token',
     name: 'NewPass',
     component: NewPass,
-    props: true, // Pass the token as a prop
+    props: true,
   },
 
-  // Not Found Page
   {
     path: '/:catchAll(.*)',
     name: 'NotFound',

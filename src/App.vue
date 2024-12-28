@@ -11,9 +11,7 @@ export default {
 </script>
 
 <style>
-
-
-/* Smooth scroll behavior */
+ 
 html {
   scroll-behavior: smooth;
 }

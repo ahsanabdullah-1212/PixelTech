@@ -1,12 +1,10 @@
 <template>
   <div class="meta-tags-management">
-    <h2>Meta Tags Management</h2>
-    <!-- Button to add a new meta tag -->
+    <h2>Meta Tags Management</h2> 
     <div class="add-button">
       <button @click="createMetaTags">Add New <i class="fa-solid fa-plus"></i></button>
     </div>
-
-    <!-- Table to display meta tags -->
+ 
     <table v-if="metaTags.length">
       <thead>
         <tr>
@@ -36,10 +34,10 @@
       </tbody>
     </table>
 
-    <!-- "No Records Found" message -->
+    
     <p v-else class="no-records">No Records Found</p>
 
-    <!-- Pagination Controls -->
+     
     <div v-if="totalPages > 1" class="pagination">
       <button
         v-if="currentPage > 1"
@@ -72,7 +70,7 @@ export default {
     };
   },
   methods: {
-    // Fetch paginated meta tags from Laravel API
+    
     fetchMetaTags(page = 1) {
       apiClient
         .get(`/api/meta-tags?page=${page}&per_page=4`)
@@ -85,17 +83,17 @@ export default {
           console.error("Error fetching meta tags:", error);
         });
     },
-    // Open form for adding a new meta tag
+     
     createMetaTags() {
       this.$router.push({ name: "AddMetaTag" });
     },
-    // Delete a meta tag
+     
     deleteMetaTag(id) {
       if (confirm("Are you sure you want to delete this meta tag?")) {
         apiClient
           .delete(`/api/meta-tags/${id}`)
           .then(() => {
-            // Refresh list and redirect to the first page
+             
             this.fetchMetaTags(1);
           })
           .catch((error) => {
@@ -103,7 +101,7 @@ export default {
           });
       }
     },
-    // Change page and fetch meta tags for the new page
+    
     changePage(page) {
       if (page >= 1 && page <= this.totalPages) {
         this.fetchMetaTags(page);
@@ -111,7 +109,7 @@ export default {
     },
   },
   mounted() {
-    this.fetchMetaTags(); // Fetch meta tags on component mount
+    this.fetchMetaTags();  
   },
 };
 </script>

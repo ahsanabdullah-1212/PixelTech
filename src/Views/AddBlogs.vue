@@ -3,13 +3,9 @@
       <h1>Add New Blog</h1>
       <form @submit.prevent="createBlog" class="blog-form">
         <label for="title">Title</label>
-        <input type="text" id="title" v-model="title" placeholder="Enter blog title" required />
-  
+        <input type="text" id="title" v-model="title" placeholder="Enter blog title" required /> 
         <label for="image">Image</label>
-        <input type="file" id="image" @change="handleImageUpload" required />
-  
-      
-  
+        <input type="file" id="image" @change="handleImageUpload" required />  
         <button type="submit" class="submit-btn">Submit</button>
       </form>
     </div>
@@ -22,17 +18,17 @@
     data() {
       return {
         title: '',
-        image: null, // This will store the image file
+        image: null, 
       };
     },
     methods: {
       handleImageUpload(event) {
-        this.image = event.target.files[0]; // Store the selected file
+        this.image = event.target.files[0];  
       },
       createBlog() {
         const formData = new FormData();
         formData.append('title', this.title);
-        formData.append('image', this.image); // Append the image file
+        formData.append('image', this.image); 
   
         apiClient
           .post('/api/blogs', formData, {

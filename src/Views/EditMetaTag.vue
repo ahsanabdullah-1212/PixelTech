@@ -46,11 +46,11 @@ export default {
     methods: {
         fetchMetaTagData(id) {
             apiClient.get(`/api/meta-tags/${id}`).then(response => {
-                // console.log("API Response:", response.data);
-                const metaTag = response.data; // Assumes data is an array with at least one element
+                 
+                const metaTag = response.data;  
                 if (!metaTag) {
                     console.error("Meta tag not found.");
-                    this.$router.push('/error-page'); // Redirect if no meta tag is found
+                    this.$router.push('/error-page');  
                     return;
                 }
                 this.formData.id = metaTag.id;
@@ -64,34 +64,34 @@ export default {
             });
         },
         handleSubmit() {
-    if (this.editMode && this.formData.id) {
-        apiClient.put(`/api/meta-tags/${this.formData.id}/edit`, this.formData)
-            .then(() => {
-                this.navigateBack();
-            })
-            .catch(error => {
-                console.error("Error updating meta tag:", error);
-            });
-    } else {
-        apiClient.post('/api/meta-tags', this.formData)
-            .then(() => {
-                this.navigateBack();
-            })
-            .catch(error => {
-                console.error("Error creating meta tag:", error);
-            });
-    }
-},
+            if (this.editMode && this.formData.id) {
+                apiClient.put(`/api/meta-tags/${this.formData.id}/edit`, this.formData)
+                    .then(() => {
+                        this.navigateBack();
+                    })
+                    .catch(error => {
+                        console.error("Error updating meta tag:", error);
+                    });
+            } else {
+                apiClient.post('/api/meta-tags', this.formData)
+                    .then(() => {
+                        this.navigateBack();
+                    })
+                    .catch(error => {
+                        console.error("Error creating meta tag:", error);
+                    });
+            }
+        },
         navigateBack() {
             this.$router.push({ name: 'meta-tags', params: { id: this.formData.id } });
         }
     },
     mounted() {
         const id = this.$route.params.id;
-        // console.log("Fetched ID from route:", id); // Debug log
+
         if (!id) {
             console.error("No ID provided in the route.");
-            this.$router.push('/error-page'); // Redirect if ID is missing
+            this.$router.push('/error-page');
             return;
         }
         this.fetchMetaTagData(id);
