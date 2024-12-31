@@ -1072,6 +1072,7 @@ a {
 @media(max-width:770px){
     .pixel-info {
         padding-left: 0px;
+        margin-bottom: 18px;
     }
 }
 .pixel-row {
