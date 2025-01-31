@@ -43,9 +43,13 @@ const routes = [
       { path: '/edit-meta-tag/:id', name: 'EditMetaTag', component: EditMetaTag },
       { path: 'meta-tags/add', name: 'AddMetaTag', component: () => import('@/Views/NewAdminTags.vue') },
       { path: 'blogs', name: 'BlogList', component: () => import('@/Views/BlogsList.vue') },
+      { path: 'portfolios', name: 'PortfolioList', component: () => import('@/Views/PortfolioList.vue') },
       { path: 'addBlogs', name: 'AddBlog', component: () => import('@/Views/AddBlogs.vue') },
+      { path: 'addPortfolios', name: 'AddPortfolio', component: () => import('@/Views/AddPortfolios.vue') },
       { path: 'viewBlogs/:id', name: 'ViewBlog', component: () => import('@/Views/ViewBlogs.vue') },
+      { path: 'viewPortfolios/:id', name: 'ViewPorfolio', component: () => import('@/Views/ViewPortfolio.vue') },
       { path: 'editBlogs/:id', name: 'EditBlog', component: () => import('@/Views/EditBlogs.vue') },
+      { path: 'editPortfolios/:id', name: 'EditPortfolio', component: () => import('@/Views/EditPortfolios.vue') },
     ]
   },
 
