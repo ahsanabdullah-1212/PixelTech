@@ -18,7 +18,7 @@
           <span v-if="!isClosed">Blogs</span>
         </router-link></li>
       <li><router-link class="dashboard-nav-item" to="/admin/portfolios">
-        <i class="fa-brands fa-blogger-b"></i>
+        <i class="fa-solid fa-briefcase"></i>
           <span v-if="!isClosed">Portfolios</span>
         </router-link></li>
         <li><router-link class="dashboard-nav-item" to="/admin/admin-profile">
