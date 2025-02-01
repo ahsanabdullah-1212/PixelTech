@@ -1,6 +1,6 @@
 <template>
     <div class="main-article">
-        <div class="article-head">
+        <div class="article-head" style="margin-bottom: 115px;">
             <h2>News & <span class="animated-2">Articles</span></h2>
         </div>
         <div class="Article-card-container">
