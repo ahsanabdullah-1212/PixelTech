@@ -2233,11 +2233,23 @@ a {
     justify-content: space-around;
 }
 
-.creation-card-image {}
-
+.creation-card-image {
+    height: 360px;
+}
+@media(max-width:800px) {
+    .creation-card-image {
+        height: 250px;
+    }  
+}
+@media(max-width:450px) {
+    .creation-card-image {
+        height: 250px!important;
+    }  
+}
 .creation-card-description {}
 
 .creation-card-image img {
+    height: 100%;
     width: 100%;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;

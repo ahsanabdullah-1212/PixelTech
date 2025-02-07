@@ -7,7 +7,8 @@
     margin-top: 42px;">
         <h1 class="page-title">View Portfolio</h1>
 
-        <div v-if="portfolio" :class="['creation-card', `creation-card-${index + 1}`]" style="width:calc(50%-0px);">
+        <div v-if="portfolio" :class="['creation-card', `creation-card-${index + 1}`]" >
+
             <div class="creation-card-image">
                 <img :src="baseURL + portfolio.image" alt="portfolio Image" />
             </div>
@@ -62,6 +63,9 @@ export default {
 </script>
 
 <style scoped>
+.creation-card {
+    width: 450px!important;
+}
 .bck-btn {
     cursor: pointer;
     border: none;

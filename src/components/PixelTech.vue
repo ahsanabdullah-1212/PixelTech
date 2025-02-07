@@ -19,7 +19,7 @@
                                 unparalleled artistry and precision, you’re in the right place. Partner with Pixel Tech
                                 and watch your imagination take shape in three dimensions.</p>
                         </div>
-                        <router-link to="/services">
+                        <router-link to="/contact">
                             <div class="pixel-btn">
                                 <button class="gradient-btn">Begin Project</button>
                             </div>

@@ -37,10 +37,10 @@
                 </div>
             </div>
             <div class="specail-cards-btns">
-                <router-link to="/services">
+                <router-link to="/contact">
                     <button class="gradient-btn">See our Plans</button>
                 </router-link>
-                <router-link to="/portfolio">
+                <router-link to="/contact">
                     <button class="simple-btn">Unique Project?</button>
                 </router-link>
 
