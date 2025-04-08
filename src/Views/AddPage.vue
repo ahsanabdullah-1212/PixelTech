@@ -1,25 +1,21 @@
 <template>
     <div class="add-blog-container">
-        <h1>Add New Portfolio</h1>
-        <form @submit.prevent="createPortfolio" class="blog-form">
-            <label for="title">Title</label>
-            <input type="text" id="title" v-model="title" placeholder="Enter Portfolio title" required />
-            <label for="service">Select Service</label>
-            <select id="service" v-model="selectedServiceId" required>
-                <option value="" disabled>Select a service</option>
-                <option v-for="service in services" :key="service.id" :value="service.id">
-                    {{ service.name }}
-                </option>
-            </select>
+        <h1>Add New Service</h1>
+        <form @submit.prevent="createPage" class="blog-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" v-model="name" placeholder="Enter Service name" required />
 
+            <label for="title">Title</label>
+            <input type="text" id="title" v-model="title" placeholder="Enter Service title" />
             <label for="image">Image</label>
             <input type="file" id="image" @change="handleImageUpload" required />
 
             <div v-if="imagePreview" class="image-preview">
                 <img :src="imagePreview" alt="Image Preview" />
             </div>
-            <label for="text">Text</label>
-            <textarea id="text" v-model="text" placeholder="Enter Portfolio description" required></textarea>
+            <label for="description">Description</label>
+            <textarea id="description" v-model="description" placeholder="Enter Service description" rows="5"
+                style="resize: vertical;"></textarea>
 
             <button type="submit" class="submit-btn">Submit</button>
         </form>
@@ -33,11 +29,11 @@ export default {
     data() {
         return {
             title: "",
+            name: "",
+            description: "",
             image: null,
             imagePreview: null,
-            text: "",
-            selectedServiceId: "",
-            services: [],
+
         };
     },
     methods: {
@@ -47,43 +43,29 @@ export default {
             // Create a preview URL
             this.imagePreview = URL.createObjectURL(file);
         },
-        createPortfolio() {
+        createPage() {
             const formData = new FormData();
-            formData.append("text", this.text);
             formData.append("title", this.title);
+            formData.append("name", this.name);
+            formData.append("description", this.description);
             formData.append("image", this.image);
-            formData.append("service_id", this.selectedServiceId);
+            console.log("Sending:", {
+                title: this.title,
+                name: this.name,
+                description: this.description,
+            });
 
             apiClient
-                .post("/api/portfolios", formData, {
+                .post("/api/service?paginate=false", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
                 })
                 .then(() => {
-                    this.$router.push({ name: "PortfolioList" });
-                })
-                .catch((error) => {
-                    console.error("Failed to create portfolio:", error);
-                    alert("Failed to submit the portfolio. Please try again.");
+                    this.$router.push({ name: "PageList" });
                 });
-
         },
-        fetchServices() {
-            apiClient.get("/api/service")
-                .then((response) => {
-                    this.services = response.data;
-                })
-                .catch((error) => {
-                    console.error("Failed to fetch services:", error);
-                });
-        }
-        ,
-
     },
-    mounted() {
-        this.fetchServices();
-    }
 };
 </script>
 

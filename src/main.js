@@ -9,7 +9,6 @@ import '@/assets/styles/styles.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import apiClient from '@/Config/apiClient.js';
 
-// Create the app instance
 const app = createApp(App);
 const pinia = createPinia();
 const head = createHead();

@@ -1,13 +1,10 @@
 <template>
-    <div class="view-blog-container" style="display: flex
-;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 42px;">
+    <div class="view-blog-container" style="">
         <h1 class="page-title">View Portfolio</h1>
+        <h1 class="page-title" v-if="portfolio">Service:{{ portfolio.service.name }} </h1>
 
-        <div v-if="portfolio" :class="['creation-card', `creation-card-${index + 1}`]" >
+
+        <div v-if="portfolio" :class="['creation-card', `creation-card-${index + 1}`]">
 
             <div class="creation-card-image">
                 <img :src="baseURL + portfolio.image" alt="portfolio Image" />
@@ -39,6 +36,7 @@ export default {
             portfolio: null,
             image: '',
             imagePreview: '',
+            services: [],
         };
     },
     created() {
@@ -46,6 +44,7 @@ export default {
         this.baseURL = baseURL + '/storage/uploads/';
     },
     methods: {
+        
         fetchPortfolio() {
             apiClient.get(`/api/portfolios/${this.$route.params.id}`).then((response) => {
                 this.portfolio = response.data;
@@ -64,8 +63,9 @@ export default {
 
 <style scoped>
 .creation-card {
-    width: 450px!important;
+    width: 450px !important;
 }
+
 .bck-btn {
     cursor: pointer;
     border: none;

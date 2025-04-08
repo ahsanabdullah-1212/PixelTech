@@ -12,9 +12,25 @@
             <!-- <router-link to="/services" exact-active-class="nav-active" active-class="nav-active">
                 <li>Services</li>
             </router-link> -->
-            <router-link to="/portfolio" exact-active-class="nav-active" active-class="nav-active">
-                <li>Portfolio</li>
-            </router-link>
+            <ul style="padding: 0px; list-style-type: none;">
+                <!-- Portfolio with Dropdown -->
+                <li class="nav-item" @mouseover="showDropdown = true" @mouseleave="showDropdown = false">
+                    <router-link to="/portfolio" exact-active-class="nav-active" active-class="nav-active">
+                        Portfolio
+                    </router-link>
+
+                    <!-- Dropdown Menu -->
+                    <transition name="fade">
+                        <ul v-if="showDropdown" class="dropdown-menu">
+                            <li v-for="(service, index) in services" :key="index">
+                                <router-link :to="'/portfolio/' + service.id">
+                                    {{ service.name }}
+                                </router-link>
+                            </li>
+                        </ul>
+                    </transition>
+                </li>
+            </ul>
             <router-link to="/blogs" exact-active-class="nav-active" active-class="nav-active">
                 <li>Blogs</li>
             </router-link>
@@ -52,10 +68,24 @@
                         @click="closeNav">
                         <li>Services</li>
                     </router-link> -->
-                    <router-link to="/portfolio" exact-active-class="nav-active" active-class="nav-active"
-                        @click="closeNav">
+                    <!-- <router-link to="/portfolio" exact-active-class="nav-active" active-class="nav-active"
+                        @click="closeNav; sidebarDropdownOpen = false">
                         <li>Portfolio</li>
-                    </router-link>
+                    </router-link> -->
+                    <li @click="sidebarDropdownOpen = !sidebarDropdownOpen" class="sidebar-dropdown-toggle">
+                        Portfolio
+                        <span :class="{ 'rotate-arrow': sidebarDropdownOpen }">▼</span>
+                        <transition name="fade">
+                            <ul v-if="sidebarDropdownOpen" class="sidebar-dropdown-list">
+                                <li v-for="(service, index) in services" :key="'sidebar-' + index">
+                                    <router-link :to="'/portfolio/' + service.id" @click="closeNav">
+                                        {{ service.name }}
+                                    </router-link>
+                                </li>
+                            </ul>
+                        </transition>
+                    </li>
+
                     <router-link to="/blogs" exact-active-class="nav-active" active-class="nav-active"
                         @click="closeNav">
                         <li>Blogs</li>
@@ -76,22 +106,40 @@
 </template>
 
 <script>
+import apiClient from "@/Config/apiClient.js";
 export default {
     data() {
         return {
-            isNavOpen: false, 
-            isScrolled: false 
+            services: [],
+            isNavOpen: false,
+            isScrolled: false,
+            showDropdown: false,
+            sidebarDropdownOpen: false,
         };
     },
+    created() {
+        this.fetchServices();
+    },
     methods: {
+
         closeNav() {
-            this.isNavOpen = false; 
+            this.isNavOpen = false;
         },
+        fetchServices() {
+            apiClient.get("/api/service")
+                .then((response) => {
+                    this.services = response.data.data ? response.data.data : response.data;
+                })
+                .catch((error) => {
+                    console.error("Error fetching Services:", error);
+                });
+        }
+        ,
         toggleNav() {
             this.isNavOpen = !this.isNavOpen;
         },
         handleScroll() {
-            if (window.scrollY > 50) {  
+            if (window.scrollY > 50) {
                 this.isScrolled = true;
             } else {
                 this.isScrolled = false;
@@ -106,4 +154,63 @@ export default {
     }
 };
 </script>
-<style></style>
+<style>
+.sidebar-dropdown-toggle {
+    cursor: pointer;
+    padding: 12px 20px;
+    position: relative;
+}
+
+.sidebar-dropdown-toggle span {
+    float: right;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.rotate-arrow {
+    transform: rotate(180deg);
+}
+
+.sidebar-dropdown-list {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.sidebar-dropdown-list li {
+    padding: 8px 0;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 20px;
+    left: -65px;
+    background: #111111;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    padding: 10px 0;
+    min-width: 200px;
+    z-index: 100;
+    overflow: hidden;
+}
+
+/* Dropdown Items */
+.dropdown-menu li {
+    padding: 12px 20px;
+    transition: 0.3s ease-in-out;
+}
+
+
+/* Smooth Dropdown Animation */
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+</style>

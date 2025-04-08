@@ -42,7 +42,5 @@ export default {
 </script>
 
 <style scoped>
-.admin-nav-links {
-  cursor: pointer;
-}
+
 </style>

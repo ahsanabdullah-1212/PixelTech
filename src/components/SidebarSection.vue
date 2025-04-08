@@ -21,6 +21,10 @@
         <i class="fa-solid fa-briefcase"></i>
           <span v-if="!isClosed">Portfolios</span>
         </router-link></li>
+      <li><router-link class="dashboard-nav-item" to="/admin/page">
+        <i class="fa-solid fa-briefcase"></i>
+          <span v-if="!isClosed">Services</span>
+        </router-link></li>
         <li><router-link class="dashboard-nav-item" to="/admin/admin-profile">
         <i class="fa-solid fa-user"></i>
           <span v-if="!isClosed">Change Password</span>

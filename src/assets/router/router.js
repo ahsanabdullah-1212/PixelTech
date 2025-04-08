@@ -21,9 +21,10 @@ const routes = [
     children: [
       { path: '', name: 'LandingPage', component: () => import('../pages/landingPage.vue') },
       { path: 'services', name: 'ServicePage', component: () => import('../pages/ServicePage.vue') },
-      { path: 'portfolio', name: 'AboutUs', component: () => import('../pages/portfolioUs.vue') },
+      // { path: 'portfolio', name: 'AboutUs', component: () => import('../pages/portfolioUs.vue') },
       { path: 'blogs', name: 'Blogs', component: () => import('../pages/BlogsPage.vue') },
       { path: 'contact', name: 'ContactPage', component: () => import('../pages/ContactPage.vue') },
+      { path: "/portfolio/:id?", name: 'AboutUs', component: () => import('../pages/portfolioUs.vue') },
       { path: 'team', name: 'TeamPage', component: () => import('../pages/TemPage.vue') },
     ]
   },
@@ -50,6 +51,10 @@ const routes = [
       { path: 'viewPortfolios/:id', name: 'ViewPorfolio', component: () => import('@/Views/ViewPortfolio.vue') },
       { path: 'editBlogs/:id', name: 'EditBlog', component: () => import('@/Views/EditBlogs.vue') },
       { path: 'editPortfolios/:id', name: 'EditPortfolio', component: () => import('@/Views/EditPortfolios.vue') },
+      { path: 'page', name: 'PageList', component: () => import('@/Views/PageList.vue') },
+      { path: 'addpage', name: 'AddPage', component: () => import('@/Views/AddPage.vue') },
+      { path: 'viewpage/:id', name: 'ViewPage', component: () => import('@/Views/ViewPage.vue') },
+      { path: 'editpage/:id', name: 'EditPage', component: () => import('@/Views/EditPage.vue') },
     ]
   },
 

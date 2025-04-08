@@ -33,20 +33,23 @@
                         <router-link to="/contact">
                             <li>Contact Us</li>
                         </router-link>
-                        
+
                     </ul>
                 </div>
                 <div class="footer-col">
                     <ul>
                         <h2>Services</h2>
-                        <li>3D Character Design</li>
-                        <li>3D Game Assets Modeling</li>
-                        <li>Product Visualization</li>
-                        <li>3D CUstomizers for Websites</li>
-                        <li>2D Motion Graphics</li>
-                        <li>NFT Design & Development</li>
+                        <template v-if="services.length">
+                            <li v-for="(service, index) in services" :key="'sidebar-' + index">
+                                <router-link :to="'/portfolio/' + service.id" @click="closeNav">
+                                    {{ service.name }}
+                                </router-link>
+                            </li>
+                        </template>
+                        <li v-else>No services</li>
                     </ul>
                 </div>
+
                 <div class="footer-col">
                     <ul>
                         <h2>Goals & Strategy</h2>
@@ -65,3 +68,27 @@
         </div>
     </div>
 </template>
+<script>
+import apiClient from "@/Config/apiClient.js";
+export default {
+    data() {
+        return {
+            services: [],
+        };
+    },
+    created() {
+        this.fetchServices();
+    },
+    methods: {
+        fetchServices() {
+            apiClient.get("/api/service")
+                .then((response) => {
+                    this.services = response.data.data ? response.data.data : response.data;
+                })
+                .catch((error) => {
+                    console.error("Error fetching Services:", error);
+                });
+        }
+    }
+};
+</script>

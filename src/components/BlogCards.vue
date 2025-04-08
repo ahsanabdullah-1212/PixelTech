@@ -17,14 +17,14 @@
 
 <script>
 import apiClient from "@/Config/apiClient.js";
-import { baseURL } from "@/Config/apiClient.js";
+// import { baseURL } from "@/Config/apiClient.js"; // import { createRouter, createWebHistory } from "vue-router";
 
 export default {
   data() {
     return {
       cards: [], 
       displayedCards: [],
-      baseURL: baseURL , 
+      // baseURL: baseURL , 
       currentPage: 1, 
       itemsPerPage: 4, 
       hasMore: true, 
@@ -41,7 +41,7 @@ export default {
           const blogs = response.data.data || [];
           if (blogs.length) {
             const newCards = blogs.map((blog) => ({
-              imageUrl: blog.image ? `${this.baseURL}/storage/uploads/${blog.image}` : "",
+              imageUrl: blog.image ? `${apiClient.defaults.baseURL}/storage/uploads/${blog.image}` : "",
               title: blog.title,
               date : blog.formatted_date,
             }));
@@ -80,18 +80,5 @@ export default {
 </script>
 
 <style scoped>
-.load-more {
-  margin: 20px 0;
-  text-align: center;
-}
 
-.load-more button {
-  border: none;
-  width: 120px;
-  padding: 15px 15px;
-  color: var(--white-color);
-  cursor: pointer;
-  border-radius: 25px;
-  background: linear-gradient(90deg, #29DFFD 0%, #245AF8 100%);
-}
 </style>

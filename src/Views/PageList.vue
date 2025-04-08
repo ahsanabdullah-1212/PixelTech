@@ -1,16 +1,16 @@
 <template>
   <div class="blogs-container">
-    <h1>Portfolios</h1>
+    <h1>Services</h1>
 
     <div class="search-container">
       <input type="text" v-model="searchQuery" placeholder="Search porfolios..." class="search-input" />
-      <button class="search-btn" @click="searchPortfolios">
+      <button class="search-btn" @click="searchPages">
         Search
       </button>
     </div>
 
     <div class="blog-b">
-      <button class="add-blog-btn" @click="navigateToAddPortfolio">
+      <button class="add-blog-btn" @click="navigateToAddPages">
         Add New <i class="fa-solid fa-plus"></i>
       </button>
     </div>
@@ -19,27 +19,27 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>Service</th>
+          <th>Name</th>
           <th>Title</th>
-          <th>Description</th>
           <th>Image</th>
+          <th>Description</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-if="portfolios.length === 0">
+        <tr v-if="pages.length === 0">
           <td colspan="5" class="no-records">No Records Found</td>
         </tr>
-        <tr v-for="portfolio in portfolios" :key="portfolio.id">
-          <td>{{ portfolio.id }}</td>
-          <td class="content-cell">{{ portfolio.service?.name }}</td>
-          <td class="content-cell">{{ portfolio.title }}</td>
-          <td class="content-cell">{{ portfolio.text }}</td>
-          <td><img :src="baseURL + portfolio.image" alt="Portfolio Image" width="50" /></td>
+        <tr v-for="page in pages" :key="page.id">
+          <td>{{ page.id }}</td>
+          <td class="content-cell">{{ page.name }}</td>
+          <td class="content-cell">{{ page.title }}</td>
+          <td><img :src="baseURL + page.image" alt="Blog Image" width="50" /></td>
+          <td class="content-cell">{{ page.description }}</td>
           <td>
-            <button @click="navigateToView(portfolio.id)"><i class="fa-solid fa-eye"></i></button>
-            <button @click="navigateToEdit(portfolio.id)"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button @click="deletePortofolios(portfolio.id)"><i class="fa-solid fa-trash"></i></button>
+            <button @click="navigateToView(page.id)"><i class="fa-solid fa-eye"></i></button>
+            <button @click="navigateToEdit(page.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button @click="deletePages(page.id)"><i class="fa-solid fa-trash"></i></button>
           </td>
         </tr>
       </tbody>
@@ -62,11 +62,11 @@
 import apiClient from "@/Config/apiClient.js";
 import { baseURL } from "@/Config/apiClient.js";
 
+
 export default {
   data() {
     return {
-      services: [],
-      portfolios: [],
+      pages: [],
       baseURL,
       currentPage: 1,
       totalPages: 1,
@@ -74,61 +74,57 @@ export default {
     };
   },
   methods: {
-    
-    fetchPortfolios(page = 1) {
-      apiClient.get(`/api/portfolios?page=${page}`).then((response) => {
-        this.portfolios = response.data.data;
-        console.log(response.data.data);
+    fetchPages(page = 1) {
+      apiClient.get(`/api/service?paginate=4&page=${page}`).then((response) => {
+        this.pages = response.data.data;
         this.currentPage = response.data.current_page;
         this.totalPages = response.data.last_page;
       });
     },
-    navigateToAddPortfolio() {
-      this.$router.push({ name: "AddPortfolio" });
+    navigateToAddPages() {
+      this.$router.push({ name: "AddPage" });
     },
     navigateToView(id) {
-      this.$router.push({ name: "ViewPorfolio", params: { id } });
+      this.$router.push({ name: "ViewPage", params: { id } });
     },
     navigateToEdit(id) {
-      this.$router.push({ name: "EditPortfolio", params: { id } });
+      this.$router.push({ name: "EditPage", params: { id } });
     },
-    deletePortofolios(id) {
-      if (window.confirm('Are you sure you want to delete this Portfolio?')) {
-        apiClient.delete(`/api/portfolios/${id}`).then(() => {
-          this.fetchPortfolios(1);
+    deletePages(id) {
+      if (window.confirm('Are you sure you want to delete this Service?')) {
+        apiClient.delete(`/api/service/${id}`).then(() => {
+          this.fetchPages(1);
         }).catch((error) => {
-          console.error('Failed to delete the Portfolio:', error);
-          alert('Failed to delete the portfolio. Please try again.');
+          console.error('Failed to delete the Service:', error);
+          alert('Failed to delete the Service. Please try again.');
         });
       } else {
-        console.log('Portfolio deletion canceled.');
+        console.log('Service deletion canceled.');
       }
     }
     ,
     changePage(page) {
       if (page >= 1 && page <= this.totalPages) {
-        this.fetchPortfolios(page);
+        this.fetchPages(page);
       }
     },
-    searchPortfolios() {
+    searchPages() {
       if (this.searchQuery.trim()) {
         apiClient
-          .get(`/api/portfolios/search`, { params: { query: this.searchQuery } })
+          .get(`/api/service/search`, { params: { query: this.searchQuery } })
           .then((response) => {
-            this.portfolios = response.data;
+            this.pages = response.data;
             this.currentPage = 1;
             this.totalPages = 1;
           });
       } else {
-        this.fetchPortfolios();
+        this.fetchPages();
       }
     },
-    
-
   },
   mounted() {
+    this.fetchPages();
     this.baseURL = baseURL + "/storage/uploads/";
-    this.fetchPortfolios();
   },
 };
 </script>
